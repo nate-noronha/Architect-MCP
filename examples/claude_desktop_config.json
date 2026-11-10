@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "architect": {
+      "command": "python",
+      "args": ["-m", "architect_mcp.server", "--transport", "stdio"],
+      "env": {
+        "ARCHITECT_TENANT": "hmc-makerspace",
+        "ARCHITECT_TOKEN_BUDGET": "4000"
+      }
+    }
+  }
+}

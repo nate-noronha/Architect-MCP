@@ -33,3 +33,35 @@ This document tracks architectural decisions, vertical slice milestones, and aut
   - `architect_mcp/harness/token_budget.py`: Deterministic safety-first token packer guaranteeing pinned global SOPs (`always_include=True`) and mandatory steward gates are never dropped while bounding stockroom retrieval to `token_budget`.
 - **Verification**:
   - Ran `pytest -v` across all Slice 1 & Slice 2 suites (`18 passed` in `0.19s`: `tests/test_tenant_loader.py`, `tests/test_tenant_portability.py`, `tests/test_context_harness.py`, `tests/test_safety_gates.py`).
+
+---
+
+## 2026-11-10: Slice 3 — FastMCP Server (Tools, Resources, Prompts & CLI)
+
+- **Branch**: `feat/slice-3-mcp-server` (stacked on `feat/slice-2-context-harness`)
+- **Deliverables Implemented**:
+  - `architect_mcp/server.py`: Complete `MCPServer` implementation supporting `stdio`, `sse`, and `streamable-http` transports.
+    - **7 MCP Tools**:
+      - `assemble_context_harness`: Dynamic multi-bucket context packer.
+      - `search_makerspace_inventory`: Stockroom search with cabinet/bin path & role gating.
+      - `check_machine_and_certification`: Operational readiness, cert chains, and safety gates.
+      - `save_hardware_build_plan`: Registers build plans with deterministic safety locking.
+      - `request_steward_safety_signoff`: Gated steward check-off request requiring verified PPE.
+      - `complete_build_step`: Enforces safety gate block until steward sign-off.
+      - `ingest_university_bucket`: Admin tool hot-reloading updated campus buckets.
+    - **6 MCP Resources**:
+      - `architect://tenant/info`
+      - `architect://buckets/safety/all`
+      - `architect://buckets/certifications/matrix`
+      - `architect://buckets/machines/catalog`
+      - `architect://buckets/inventory/summary`
+      - `architect://projects/{project_id}`
+    - **3 MCP Prompts**:
+      - `/architect-build-plan`
+      - `/shop-safety-precheck`
+      - `/bom-stockroom-audit`
+  - `pyproject.toml`: Added `mcp>=2.0.0` and console script `architect-mcp = architect_mcp.server:main`.
+  - Client configuration templates in `examples/claude_desktop_config.json` and `examples/mcp_config.json`.
+- **Verification**:
+  - Full end-to-end test suite in `tests/test_mcp_tools.py` (`9 passed`).
+  - Total test suite across all 3 slices: `27 passed` in `0.57s`.
