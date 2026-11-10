@@ -1,0 +1,127 @@
+machines:
+  - id: juki-leather-sewing
+    name: Leather Sewing Machine
+    model_number: Juki DNU-1541 Industrial Walking Foot
+    area: main-area-and-cage
+    subsystems:
+      - textiles
+      - assembly
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: general-certification
+    requires_steward_signoff: false
+    work_envelope: Heavy-duty walking foot throat (up to 8mm stacked leather/webbing)
+    allowed_materials: [leather, canvas, nylon webbing, heavy fabric]
+    forbidden_materials: [sheet metal, rigid plastics]
+    manual_url: https://make.hmc.edu/areas
+    setup_video_url: https://make.hmc.edu/areas#lsm-video
+    description: Industrial walking foot leather sewing machine for thick multi-layer textiles and leather straps.
+    tags: [sewing, leather, textiles, main-area]
+
+  - id: brother-embroidery
+    name: Embroidery Machine
+    model_number: Brother PE800
+    area: main-area-and-cage
+    subsystems:
+      - textiles
+    status: reserved
+    units_available: 3
+    units_total: 4
+    required_cert: general-certification
+    requires_steward_signoff: false
+    work_envelope: 5 x 7 inch embroidery hoop
+    allowed_materials: [cotton, canvas, felt, denim]
+    manual_url: https://make.hmc.edu/areas
+    description: Computer-controlled embroidery machine supporting custom digitized logos and patterns.
+    tags: [embroidery, textiles]
+
+  - id: prusa-mk4-cluster
+    name: Prusa MK4 3D Printer Bank
+    model_number: Prusa MK4
+    area: rapid-prototyping
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 6
+    units_total: 6
+    required_cert: 3d-printing-cert
+    requires_steward_signoff: false
+    work_envelope: 250 x 210 x 220 mm
+    allowed_materials: [PLA, PETG, TPU]
+    forbidden_materials: [unapproved resins, wet polycarbonate]
+    description: Fused filament fabrication cluster for rapid enclosures, jigs, and brackets.
+    tags: [3d-print, fdm, pla, petg, enclosure]
+
+  - id: epilog-fusion-laser
+    name: Epilog Fusion Pro Laser Cutter
+    model_number: Epilog Fusion Pro 32
+    area: rapid-prototyping
+    subsystems:
+      - fabrication
+      - mechanical
+    status: operational
+    units_available: 2
+    units_total: 2
+    required_cert: laser-cutting-cert
+    requires_steward_signoff: false
+    work_envelope: 32 x 20 inch bed (80W CO2 + Fiber)
+    allowed_materials: [cast acrylic, baltic birch plywood, delrin, anodized aluminum marking, leather]
+    forbidden_materials: [PVC, vinyl, polycarbonate, ABS, fiberglass]
+    description: High-speed CO2 laser cutter for flat sheet panels, gears, baffles, and front plates.
+    tags: [laser, acrylic, plywood, rotary-attachment]
+
+  - id: clausing-lathe
+    name: Clausing Colchester Engine Lathe
+    model_number: Clausing Colchester 13x36
+    area: machine-shop
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 2
+    units_total: 2
+    required_cert: machine-shop-green
+    requires_steward_signoff: true
+    work_envelope: 13 inch swing x 36 inch center distance
+    allowed_materials: [6061-T6 aluminum, brass, acetal/delrin, mild steel, 304 stainless steel]
+    forbidden_materials: [magnesium, wood, PVC]
+    description: Manual engine lathe for precision facing, cylindrical turning, boring, and single-point threading.
+    tags: [lathe, turning, shaft, bushing, aluminum, steel]
+
+  - id: bridgeport-mill
+    name: Bridgeport Vertical Knee Mill
+    model_number: Bridgeport Series I DRO
+    area: machine-shop
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 3
+    units_total: 3
+    required_cert: machine-shop-green
+    requires_steward_signoff: true
+    work_envelope: 30 x 12 x 16 inch XYZ travel
+    allowed_materials: [6061-T6 aluminum, brass, acetal/delrin, mild steel]
+    forbidden_materials: [magnesium, composite dust without extraction]
+    description: 3-axis manual vertical knee mill with digital readout for precision pockets, slots, and hole patterns.
+    tags: [mill, endmill, aluminum, bracket, plate]
+
+  - id: sawstop-tablesaw
+    name: SawStop PCS Cabinet Table Saw
+    model_number: SawStop 3HP PCS
+    area: wood-shop
+    subsystems:
+      - fabrication
+      - mechanical
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: wood-shop-cert
+    requires_steward_signoff: true
+    work_envelope: 36 inch rip capacity
+    allowed_materials: [hardwood, softwood, baltic birch plywood, MDF]
+    forbidden_materials: [wet treated lumber, conductive foam, aluminum, carbon fiber]
+    description: Flesh-sensing cabinet table saw for straight rip cuts and panel sizing.
+    tags: [wood, table-saw, plywood, cabinetry]

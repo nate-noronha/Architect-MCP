@@ -1,0 +1,57 @@
+certifications:
+  - id: general-certification
+    name: General Certification
+    level: 1
+    description: Baseline orientation covering MAKE safety policies, tool checkout, and Main Area & Cage equipment.
+    granting_area: main-area-and-cage
+    prerequisites: []
+    unlocks_machines:
+      - juki-leather-sewing
+      - brother-embroidery
+    requires_in_person_checkoff: false
+    training_url: https://make.hmc.edu/certifications
+
+  - id: 3d-printing-cert
+    name: 3D Printing & Rapid Prototyping
+    level: 1
+    description: Safe slicer setup, filament loading, and bed adhesion maintenance for FFF/SLA printers.
+    granting_area: rapid-prototyping
+    prerequisites:
+      - general-certification
+    unlocks_machines:
+      - prusa-mk4-cluster
+    requires_in_person_checkoff: true
+
+  - id: laser-cutting-cert
+    name: Laser Cutter Safety
+    level: 2
+    description: Approved material verification, exhaust fan operation, focusing, and fire suppression.
+    granting_area: rapid-prototyping
+    prerequisites:
+      - general-certification
+    unlocks_machines:
+      - epilog-fusion-laser
+    requires_in_person_checkoff: true
+
+  - id: machine-shop-green
+    name: Machine Shop Basic (Green Tag)
+    level: 2
+    description: Manual machining certification for Bridgeport vertical mill, Clausing lathe, bandsaw, and drill press.
+    granting_area: machine-shop
+    prerequisites:
+      - general-certification
+    unlocks_machines:
+      - clausing-lathe
+      - bridgeport-mill
+    requires_in_person_checkoff: true
+
+  - id: wood-shop-cert
+    name: Wood Shop Power Tools
+    level: 2
+    description: Safe rip fence usage, push blocks, SawStop brake cartridge rules, and dust collection.
+    granting_area: wood-shop
+    prerequisites:
+      - general-certification
+    unlocks_machines:
+      - sawstop-tablesaw
+    requires_in_person_checkoff: true

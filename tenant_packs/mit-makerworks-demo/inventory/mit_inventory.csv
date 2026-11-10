@@ -1,0 +1,6 @@
+sku,name,category,facility,location,quantity,unit
+MIT-ALU-5052,5052-H32 Aluminum Sheet 12x12x0.125in,material,Metal & Abrasive Waterjet Lab,Bay 2 -> Rack C1,18,sheets
+MIT-RESIN-T2K,Formlabs Tough 2000 Resin Cartridge,consumable,Rapid Fab Bay,Resin Fridge -> Shelf 2,4,cartridges
+MIT-GARNET-80,80-Mesh Garnet Abrasive 50lb Bag,consumable,Metal & Abrasive Waterjet Lab,Hopper Pallet,12,bags
+MIT-VESC-75,75V Brushless Motor ESC Controller,component,Electronics & Metrology Bench,Power Cabinet B -> Drawer 3,2,pcs
+MIT-M4-KIT,M4 Stainless Hex Cap Bolt Assortment,fastener,Electronics & Metrology Bench,Fastener Tower -> Bin M4,45,kits

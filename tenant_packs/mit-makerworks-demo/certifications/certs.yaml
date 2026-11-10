@@ -1,0 +1,22 @@
+certifications:
+  - id: tier-1-red-pass
+    name: Tier-1 Red Pass Orientation
+    level: 1
+    description: Campus-wide shop access pass covering SLA 3D printing and ESD benches.
+    granting_area: rapid-fab-bay
+    prerequisites: []
+    unlocks_machines:
+      - formlabs-form4
+    requires_in_person_checkoff: true
+
+  - id: tier-2-waterjet-cert
+    name: Tier-2 Abrasive Waterjet & CNC Machinist
+    level: 2
+    description: CAM fixture prep, submerged cutting, and CNC work-offset probing.
+    granting_area: metal-and-waterjet
+    prerequisites:
+      - tier-1-red-pass
+    unlocks_machines:
+      - omax-protomax-waterjet
+      - haas-mini-mill
+    requires_in_person_checkoff: true
