@@ -13,7 +13,11 @@ dependencies = [
     "PyYAML>=6.0.1",
     "sqlmodel>=0.0.22",
     "python-dotenv>=1.0.0",
+    "mcp>=2.0.0",
 ]
+
+[project.scripts]
+architect-mcp = "architect_mcp.server:main"
 
 [project.optional-dependencies]
 dev = [
