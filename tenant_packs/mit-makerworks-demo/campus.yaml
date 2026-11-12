@@ -1,0 +1,28 @@
+university_slug: mit-makerworks-demo
+university_name: MIT MakerWorks (Demo Campus)
+makerspace_name: Building N52 Metropolis & Prototyping Foundry
+location: Cambridge, MA
+website: https://make.mit.edu
+contact_email: makerworks-mentors@mit.edu
+default_token_budget: 4000
+
+emergency_contacts:
+  campus_police: "617-253-1212"
+  mentor_desk: "N52 Central Cage"
+
+areas:
+  - slug: rapid-fab-bay
+    name: Rapid Fab Bay
+    facility_code: MAKERSPACE
+    description: Resin stereolithography, laser cutting, and thermoforming stations.
+    required_base_cert: tier-1-red-pass
+  - slug: metal-and-waterjet
+    name: Metal & Abrasive Waterjet Lab
+    facility_code: MACHINE_SHOP
+    description: Abrasive waterjet, CNC mini mill, and precision TIG welding bay.
+    required_base_cert: tier-2-waterjet-cert
+  - slug: electronics-metrology
+    name: Electronics & Metrology Bench
+    facility_code: EE_STOCKROOM
+    description: ESD rework benches, reflow ovens, and component towers.
+    required_base_cert: tier-1-red-pass

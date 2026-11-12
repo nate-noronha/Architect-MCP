@@ -1,0 +1,52 @@
+machines:
+  - id: formlabs-form4
+    name: Formlabs Form 4 SLA Printer
+    model_number: Form 4 + Form Wash/Cure
+    area: rapid-fab-bay
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 3
+    units_total: 4
+    required_cert: tier-1-red-pass
+    requires_steward_signoff: false
+    work_envelope: 200 x 125 x 210 mm
+    allowed_materials: [Tough 2000 Resin, Clear V5 Resin, Rigid 10K Resin]
+    description: High-speed masked SLA photopolymer printer for smooth precision enclosures.
+    tags: [sla, resin, 3d-print]
+
+  - id: omax-protomax-waterjet
+    name: OMAX ProtoMAX Abrasive Waterjet
+    model_number: ProtoMAX 30,000 PSI
+    area: metal-and-waterjet
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: tier-2-waterjet-cert
+    requires_steward_signoff: true
+    work_envelope: 12 x 12 inch cutting table
+    allowed_materials: [aluminum, stainless steel, titanium, carbon fiber, acrylic]
+    forbidden_materials: [tempered glass]
+    description: Compact submerged abrasive waterjet for 2D metal plates and brackets.
+    tags: [waterjet, sheet-metal, aluminum, steel]
+
+  - id: haas-mini-mill
+    name: Haas Mini Mill 3-Axis CNC
+    model_number: Haas Mini Mill 2
+    area: metal-and-waterjet
+    subsystems:
+      - mechanical
+      - fabrication
+    status: maintenance
+    units_available: 0
+    units_total: 1
+    required_cert: tier-2-waterjet-cert
+    requires_steward_signoff: true
+    work_envelope: 20 x 16 x 14 inch XYZ
+    allowed_materials: [6061 aluminum, 7075 aluminum, brass, delrin]
+    description: 3-axis vertical CNC machining center (currently undergoing spindle belt PM).
+    tags: [cnc, mill, haas, aluminum]

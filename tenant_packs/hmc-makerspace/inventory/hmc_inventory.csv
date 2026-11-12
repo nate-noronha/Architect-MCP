@@ -1,0 +1,23 @@
+Type,Name,Quantity,Locations,Required Certs,Required Roles
+Tool,Spare Multimeter Probes,Low,Main Area & Cage > 2b,,User
+Tool,Wire Strippers and Clippers,1/1,Electronics Bench,,User
+Material,Heat Shrinks,High,Electronics Bench,,User
+Tool,Couplers for Air Supply,High,Main Area & Cage > Pneumatic Bench,,User
+Tool,Tweezers for Electronics,9/9,Electronics Bench,,User
+Material,Spare Wire (Variety of Colors),High,Electronics Bench,,User
+Tool,iFixit Kit,1/1,Main Area & Cage > 1c,,User
+Tool,Calipers,3/8,Main Area & Cage > 1c,,User
+Tool,Digital Soldering Station,1/1,Electronics Bench,,User
+Consumable,Sandpaper,High,Main Area & Cage > Cabinet 11 > Top,,User
+Tool,Laser Cutter Rotary Attachment,1/1,Main Area & Cage > 1d,laser-cutting-cert,User
+Tool,30' Extension Cord,0/1,Main Area & Cage > 2d,,User
+Tool,Drill Bit Kits,High,Main Area & Cage > 2c,,User
+Tool,Drill,3/4,Main Area & Cage > 2c,,User
+Material,6061-T6 Aluminum Round Bar 2in,High,Machine Shop > Rack A > Shelf 2,machine-shop-green,User
+Material,6061-T6 Aluminum Plate 0.25in,High,Machine Shop > Rack B > Vertical Slot 1,machine-shop-green,User
+Fastener,M3 Socket Head Cap Screw Assortment,High,Main Area & Cage > Fastener Wall > Bin M3,,User
+Fastener,M5 Hex Standoff & Nut Kit,Medium,Main Area & Cage > Fastener Wall > Bin M5,,User
+Component,STM32 Nucleo-64 Dev Board,4/6,Electronics Bench > MCU Drawer > Tray 2,,User
+Component,XT60 High-Current Connector Pair,High,Electronics Bench > Power Drawer > Bin 4,,User
+Material,Cast Acrylic Sheet 3mm Clear,High,Rapid Prototyping Bay > Sheet Rack > Slot A,laser-cutting-cert,User
+Material,PLA Filament 1.75mm Matte Black,High,Rapid Prototyping Bay > Dry Box 1,3d-printing-cert,User

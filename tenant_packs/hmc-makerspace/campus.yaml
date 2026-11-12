@@ -1,0 +1,42 @@
+university_slug: hmc-makerspace
+university_name: Harvey Mudd College
+makerspace_name: HMC Makerspace (MAKE) & Machine Shop
+location: Claremont, CA — McGregor Computer Science Center / Jacobs-Keck
+website: https://make.hmc.edu
+contact_email: make-stewards@hmc.edu
+default_token_budget: 4000
+
+emergency_contacts:
+  campus_safety: "909-607-2000"
+  shop_steward_desk: "McGregor B1 — MAKE Cage"
+  machine_shop_supervisor: "Parsons Engineering — Machine Shop"
+
+areas:
+  - slug: main-area-and-cage
+    name: Main Area & Cage
+    facility_code: MAKERSPACE
+    description: General workbenches, leather/textiles station, hand tools, and checkout cage.
+    required_base_cert: general-certification
+    policy_links:
+      general_usage: https://make.hmc.edu/areas
+      checkout_policy: https://make.hmc.edu/faq
+  - slug: electronics-bench
+    name: Electronics Bench
+    facility_code: EE_STOCKROOM
+    description: Soldering irons, benchtop power supplies, oscilloscopes, and component stockroom.
+    required_base_cert: general-certification
+  - slug: rapid-prototyping
+    name: Rapid Prototyping Bay
+    facility_code: MAKERSPACE
+    description: 3D printers, SLA resin bay, and laser cutters.
+    required_base_cert: general-certification
+  - slug: machine-shop
+    name: Machine Shop
+    facility_code: MACHINE_SHOP
+    description: Vertical knee mills, engine lathes, cold saws, and precision metrology.
+    required_base_cert: machine-shop-green
+  - slug: wood-shop
+    name: Wood Shop
+    facility_code: WOOD_SHOP
+    description: Cabinet table saw, miter saw, router table, and dust collection system.
+    required_base_cert: wood-shop-cert
