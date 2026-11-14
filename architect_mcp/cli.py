@@ -15,7 +15,9 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Optional
 
-from architect_mcp.config import get_settings
+import yaml
+
+from architect_mcp.config import PROJECT_ROOT, get_settings
 from architect_mcp.harness.bucket_manager import BucketManager
 from architect_mcp.harness.router import ContextRouter
 from architect_mcp.loaders import (
@@ -27,7 +29,14 @@ from architect_mcp.loaders import (
 )
 
 ADMIN_SUBCOMMANDS = frozenset(
-    {"validate-pack", "ingest-csv", "inspect-harness", "list-tenants"}
+    {
+        "validate-pack",
+        "ingest-csv",
+        "inspect-harness",
+        "list-tenants",
+        "init-pack",
+        "print-config",
+    }
 )
 
 
@@ -266,6 +275,99 @@ def cmd_inspect_harness(
     return 0
 
 
+def cmd_init_pack(
+    university_slug: str,
+    university_name: Optional[str] = None,
+    makerspace_name: Optional[str] = None,
+    tenant_packs_dir: Optional[Path] = None,
+    json_output: bool = False,
+) -> int:
+    """Scaffold a new drop-in university tenant pack from the starter template."""
+    settings = get_settings()
+    packs_dir = tenant_packs_dir or settings.tenant_packs_dir
+    target_dir = packs_dir / university_slug
+
+    if target_dir.exists():
+        msg = f"Tenant pack '{university_slug}' already exists at {target_dir}"
+        if json_output:
+            print(json.dumps({"ok": False, "error": msg}, indent=2))
+        else:
+            print(f"ERROR: {msg}", file=sys.stderr)
+        return 1
+
+    template_dir = PROJECT_ROOT / "tenant_packs" / "university-template"
+    if not template_dir.exists():
+        msg = f"Starter template not found at {template_dir}"
+        if json_output:
+            print(json.dumps({"ok": False, "error": msg}, indent=2))
+        else:
+            print(f"ERROR: {msg}", file=sys.stderr)
+        return 1
+
+    packs_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(template_dir, target_dir)
+
+    campus_file = target_dir / "campus.yaml"
+    campus_data = yaml.safe_load(campus_file.read_text(encoding="utf-8")) or {}
+    campus_data["university_slug"] = university_slug
+    campus_data["university_name"] = university_name or university_slug.replace("-", " ").title()
+    campus_data["makerspace_name"] = makerspace_name or f"{campus_data['university_name']} Makerspace"
+    campus_file.write_text(yaml.safe_dump(campus_data, sort_keys=False), encoding="utf-8")
+
+    pack = load_tenant_pack(tenant_slug=university_slug, tenant_packs_dir=packs_dir)
+    report = validate_tenant_pack(pack)
+
+    result = {
+        "ok": report.is_valid,
+        "university_slug": university_slug,
+        "path": str(target_dir),
+        "bucket_counts": report.bucket_counts,
+        "errors": report.errors,
+    }
+    if json_output:
+        print(json.dumps(result, indent=2))
+    else:
+        print(f"Initialized tenant pack '{university_slug}' at {target_dir}")
+        print(f"  Buckets: {report.bucket_counts}")
+        print(f"  Valid:   {report.is_valid}")
+    return 0 if report.is_valid else 1
+
+
+def cmd_print_config(
+    client: str = "claude-desktop",
+    tenant_slug: Optional[str] = None,
+    tenant_packs_dir: Optional[Path] = None,
+) -> int:
+    """Print ready-to-paste MCP client configuration JSON for Claude Desktop, Cursor, or Antigravity."""
+    settings = get_settings()
+    slug = tenant_slug or settings.tenant_slug
+    packs_dir = tenant_packs_dir or settings.tenant_packs_dir
+
+    env_block: dict[str, str] = {
+        "ARCHITECT_TENANT": slug,
+        "ARCHITECT_TENANT_DIR": str(packs_dir),
+        "ARCHITECT_TOKEN_BUDGET": str(settings.default_token_budget),
+    }
+
+    payload = {
+        "mcpServers": {
+            "architect": {
+                "command": sys.executable,
+                "args": ["-m", "architect_mcp.server", "--transport", "stdio"],
+                "env": env_block,
+            }
+        }
+    }
+
+    if client == "antigravity":
+        payload["mcpServers"]["architect"]["description"] = (
+            f"Architect-MCP Makerspace Context Harness ({slug})"
+        )
+
+    print(json.dumps(payload, indent=2))
+    return 0
+
+
 def build_admin_parser() -> argparse.ArgumentParser:
     """Build the argparse CLI for `architect-admin` / `architect-mcp` admin subcommands."""
     parser = argparse.ArgumentParser(
@@ -323,6 +425,29 @@ def build_admin_parser() -> argparse.ArgumentParser:
     )
     p_ins.add_argument("--json", action="store_true", help="Output JSON")
 
+    # init-pack
+    p_init = subparsers.add_parser(
+        "init-pack",
+        help="Scaffold a new university tenant pack from the starter template",
+    )
+    p_init.add_argument("university_slug", help="Slug for the new university (e.g. stanford-prl)")
+    p_init.add_argument("--university", default=None, help="Full university name")
+    p_init.add_argument("--makerspace", default=None, help="Campus makerspace name")
+    p_init.add_argument("--json", action="store_true", help="Output JSON")
+
+    # print-config
+    p_cfg = subparsers.add_parser(
+        "print-config",
+        help="Print ready-to-paste MCP client JSON config for Claude Desktop, Cursor, or Antigravity",
+    )
+    p_cfg.add_argument(
+        "--client",
+        choices=["claude-desktop", "cursor", "antigravity"],
+        default="claude-desktop",
+        help="Target AI host client",
+    )
+    p_cfg.add_argument("--tenant", default=None, help="University tenant slug")
+
     return parser
 
 
@@ -359,6 +484,20 @@ def main(argv: Optional[list[str]] = None) -> int:
             token_budget=args.budget,
             student_certs=args.certs,
             json_output=args.json,
+        )
+    if args.command == "init-pack":
+        return cmd_init_pack(
+            university_slug=args.university_slug,
+            university_name=args.university,
+            makerspace_name=args.makerspace,
+            tenant_packs_dir=args.tenant_dir,
+            json_output=args.json,
+        )
+    if args.command == "print-config":
+        return cmd_print_config(
+            client=args.client,
+            tenant_slug=args.tenant,
+            tenant_packs_dir=args.tenant_dir,
         )
     return 1
 

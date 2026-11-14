@@ -102,3 +102,17 @@ This document tracks architectural decisions, vertical slice milestones, and aut
 - **Verification**:
   - Added `tests/test_admin_cli.py` (`6 passed`).
   - Full test suite across all 5 slices: `36 passed` in `0.82s`.
+
+---
+
+## 2026-11-14: Slice 6 — University Starter Pack, Onboarding CLI & Live MCP `stdio` E2E Verification
+
+- **Branch**: `feat/slice-6-onboarding-and-e2e` (stacked on `feat/slice-5-admin-cli`)
+- **Deliverables Implemented**:
+  - `tenant_packs/university-template/`: Drop-in starter pack (`campus.yaml`, `safety/01_general_safety.md`, `certifications/certs.yaml`, `machines/machines.yaml`, `inventory/sample_inventory.csv`) for instant zero-code university onboarding.
+  - `architect_mcp/cli.py`:
+    - `init-pack`: Scaffolds a new university tenant pack from `university-template`, customizes `campus.yaml`, and validates cross-bucket integrity.
+    - `print-config`: Generates ready-to-paste MCP client JSON configs (`claude-desktop`, `cursor`, `antigravity`) with the resolved Python executable and tenant environment variables.
+- **Verification**:
+  - Added `tests/test_stdio_protocol_e2e.py` (`4 passed`), including a live subprocess `stdio` JSON-RPC round-trip (`ClientSession` + `stdio_client`) verifying `initialize`, `list_tools`, `list_resources`, `list_prompts`, `assemble_context_harness`, `save_hardware_build_plan`, and `complete_build_step` safety gate blocking over real OS pipes.
+  - Full test suite across Slices 1–6: `40 passed` in `1.45s`.

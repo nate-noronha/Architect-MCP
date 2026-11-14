@@ -132,3 +132,11 @@ architect-mcp ingest-csv ./stockroom_export.csv --tenant hmc-makerspace --apply
 # Simulate Context Harness routing & token budgeting for a build prompt
 architect-mcp inspect-harness "Turn 6061 shaft on engine lathe with 60V battery" --tenant hmc-makerspace
 ```
+
+```bash
+# Scaffold a brand-new university tenant pack from the starter template
+architect-mcp init-pack stanford-prl --university "Stanford University" --makerspace "Product Realization Lab"
+
+# Print ready-to-paste client JSON config for Claude Desktop, Cursor, or Antigravity
+architect-mcp print-config --client antigravity --tenant hmc-makerspace
+```
