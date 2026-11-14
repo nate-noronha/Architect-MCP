@@ -583,6 +583,23 @@ def create_mcp_server(
             "   - 'Must Procure Externally' (suggest standard commercial suppliers like McMaster-Carr or DigiKey)."
         )
 
+    @app.custom_route("/health", methods=["GET"])
+    async def health_check(request: Any) -> Any:
+        """Healthcheck endpoint for Docker, Railway, and remote MCP monitoring."""
+        from starlette.responses import JSONResponse
+
+        active_mgr = app.manager  # type: ignore[attr-defined]
+        return JSONResponse(
+            {
+                "status": "ok",
+                "service": "architect-mcp",
+                "version": "0.1.0",
+                "university_slug": active_mgr.university_slug,
+                "makerspace_name": active_mgr.pack.campus.makerspace_name,
+                "buckets": active_mgr.bucket_summary(),
+            }
+        )
+
     return app
 
 
@@ -596,6 +613,8 @@ def main() -> None:
 
     if any(arg in ADMIN_SUBCOMMANDS for arg in sys.argv[1:]):
         sys.exit(admin_main(sys.argv[1:]))
+
+    default_port = int(os.getenv("PORT", "8765"))
 
     parser = argparse.ArgumentParser(
         description="Architect-MCP: Portable Makerspace Context Harness & MCP Server"
@@ -614,8 +633,8 @@ def main() -> None:
     parser.add_argument(
         "--port",
         type=int,
-        default=8765,
-        help="Port for HTTP/SSE transport (default: 8765)",
+        default=default_port,
+        help="Port for HTTP/SSE transport (default: $PORT or 8765)",
     )
     parser.add_argument(
         "--tenant",

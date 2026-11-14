@@ -116,3 +116,17 @@ This document tracks architectural decisions, vertical slice milestones, and aut
 - **Verification**:
   - Added `tests/test_stdio_protocol_e2e.py` (`4 passed`), including a live subprocess `stdio` JSON-RPC round-trip (`ClientSession` + `stdio_client`) verifying `initialize`, `list_tools`, `list_resources`, `list_prompts`, `assemble_context_harness`, `save_hardware_build_plan`, and `complete_build_step` safety gate blocking over real OS pipes.
   - Full test suite across Slices 1–6: `40 passed` in `1.45s`.
+
+---
+
+## 2026-11-14: Slice 7 — Remote HTTP/SSE Deployment Readiness, `/health` Endpoint & Docker/Railway Config
+
+- **Branch**: `feat/slice-7-http-and-deploy` (stacked on `feat/slice-6-onboarding-and-e2e`)
+- **Deliverables Implemented**:
+  - `architect_mcp/server.py`:
+    - Added `/health` GET custom route returning service status, active university slug, makerspace name, and bucket counts across both `streamable-http` and `sse` ASGI apps.
+    - Added `$PORT` environment variable fallback for cloud deployment port binding.
+  - `Dockerfile`, `.dockerignore`, `docker-compose.yml`, `railway.toml`: Containerized remote MCP server deployment with persistent SQLite volume (`/data/architect_mcp.db`) and `/health` check.
+- **Verification**:
+  - Added `tests/test_http_transport.py` (`3 passed`: `/health` on Streamable HTTP, `/health` on SSE, and `/mcp` JSON-RPC `initialize` handshake).
+  - Full test suite across Slices 1–7: `43 passed` in `1.56s`.
