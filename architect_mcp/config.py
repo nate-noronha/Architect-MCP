@@ -3,6 +3,7 @@
 import os
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 
 from dotenv import load_dotenv
 
@@ -19,6 +20,7 @@ class Settings:
     tenant_packs_dir: Path
     database_url: str
     default_token_budget: int
+    webapp_database_url: Optional[str] = None
 
     @property
     def active_tenant_path(self) -> Path:
@@ -40,10 +42,13 @@ def get_settings() -> Settings:
     except ValueError:
         token_budget = 4000
 
+    webapp_db_raw = os.getenv("ARCHITECT_WEBAPP_DATABASE_URL", "").strip() or None
+
     return Settings(
         tenant_slug=os.getenv("ARCHITECT_TENANT", "hmc-makerspace").strip()
         or "hmc-makerspace",
         tenant_packs_dir=tenant_packs_dir,
         database_url=os.getenv("DATABASE_URL", "sqlite:///./architect_mcp.db"),
         default_token_budget=token_budget,
+        webapp_database_url=webapp_db_raw,
     )

@@ -65,3 +65,23 @@ This document tracks architectural decisions, vertical slice milestones, and aut
 - **Verification**:
   - Full end-to-end test suite in `tests/test_mcp_tools.py` (`9 passed`).
   - Total test suite across all 3 slices: `27 passed` in `0.57s`.
+
+---
+
+## 2026-11-14: Slice 4 — Durable Workflow Persistence, Steward Queue & Campus Web App Bridge
+
+- **Branch**: `feat/slice-4-persistent-workflows`
+- **Deliverables Implemented**:
+  - `architect_mcp/db.py`:
+    - SQLModel persistence layer (`architect_projects`, `architect_steps`, `architect_bom_items`) supporting standalone SQLite (`DATABASE_URL`) and PostgreSQL.
+    - `WorkflowRepository`: Durable CRUD for `save_hardware_build_plan`, `request_steward_safety_signoff`, `approve_steward_safety_signoff`, `complete_build_step`, and `list_pending_signoffs`.
+    - `WebAppBridge`: Optional schema-aware sync (`ARCHITECT_WEBAPP_DATABASE_URL`) mirroring MCP build plans, BOM items, and Shop Steward sign-off approvals directly into a companion campus web portal database (`users`, `projects`, `project_steps`, `project_bom_items`).
+  - `architect_mcp/harness/bucket_manager.py`: Integrated optional `WorkflowRepository` into `BucketManager` (`register_workflow`, `get_workflow`, `list_workflows`, `bucket_summary`).
+  - `architect_mcp/server.py`:
+    - Wired `WorkflowRepository` into `create_mcp_server`.
+    - Added `approve_steward_safety_signoff` MCP tool.
+    - Added `architect://stewards/queue` MCP resource for inspecting pending Shop Steward sign-offs.
+  - `architect_mcp/config.py` & `.env.example`: Added `ARCHITECT_WEBAPP_DATABASE_URL` configuration.
+- **Verification**:
+  - Added `tests/test_persistent_workflows.py` (`3 passed`: server-restart persistence, companion web app DB bridge sync, and missing-schema no-op safety).
+  - Full test suite across Slices 1–4: `30 passed` in `0.88s`.

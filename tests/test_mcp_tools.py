@@ -7,15 +7,21 @@ from architect_mcp.server import create_mcp_server
 
 
 @pytest.fixture
-def mcp_app():
+def mcp_app(tmp_path):
     """Fixture returning an initialized Architect-MCP server instance."""
-    return create_mcp_server(tenant_slug="hmc-makerspace")
+    return create_mcp_server(
+        tenant_slug="hmc-makerspace",
+        database_url=f"sqlite:///{tmp_path / 'hmc_test.db'}",
+    )
 
 
 @pytest.fixture
-def mit_mcp_app():
+def mit_mcp_app(tmp_path):
     """Fixture returning an Architect-MCP server instance loaded with MIT tenant pack."""
-    return create_mcp_server(tenant_slug="mit-makerworks-demo")
+    return create_mcp_server(
+        tenant_slug="mit-makerworks-demo",
+        database_url=f"sqlite:///{tmp_path / 'mit_test.db'}",
+    )
 
 
 @pytest.mark.anyio

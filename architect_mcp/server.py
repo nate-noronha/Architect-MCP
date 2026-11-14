@@ -20,6 +20,7 @@ except ImportError:  # pragma: no cover - fallback for mcp < 2.0
     from mcp.server.fastmcp import FastMCP as MCPServer
 
 from architect_mcp.config import get_settings
+from architect_mcp.db import WorkflowRepository
 from architect_mcp.harness.bucket_manager import BucketManager
 from architect_mcp.harness.router import ContextRouter
 from architect_mcp.harness.safety_validator import assess_text_hazards, validate_build_steps
@@ -36,14 +37,27 @@ from architect_mcp.models import (
 def create_mcp_server(
     tenant_slug: Optional[str] = None,
     tenant_packs_dir: Optional[Path] = None,
+    database_url: Optional[str] = None,
+    webapp_database_url: Optional[str] = None,
 ) -> MCPServer:
     """Instantiate and configure the Architect-MCP server with tools, resources, and prompts."""
     settings = get_settings()
     active_slug = tenant_slug or settings.tenant_slug
     packs_dir = tenant_packs_dir or settings.tenant_packs_dir
+    db_url = database_url or settings.database_url
+    bridge_url = (
+        webapp_database_url
+        if webapp_database_url is not None
+        else settings.webapp_database_url
+    )
 
+    workflow_repo = WorkflowRepository(
+        database_url=db_url, webapp_database_url=bridge_url
+    )
     manager = BucketManager.from_tenant(
-        tenant_slug=active_slug, tenant_packs_dir=packs_dir
+        tenant_slug=active_slug,
+        tenant_packs_dir=packs_dir,
+        workflow_repo=workflow_repo,
     )
     router = ContextRouter(manager)
 
@@ -56,6 +70,7 @@ def create_mcp_server(
     # Store references for stateful inspections / testing
     app.manager = manager  # type: ignore[attr-defined]
     app.router = router  # type: ignore[attr-defined]
+    app.workflow_repo = workflow_repo  # type: ignore[attr-defined]
 
     # =========================================================================
     # MCP TOOLS
@@ -314,44 +329,30 @@ def create_mcp_server(
         """Request Shop Steward in-person safety sign-off for a hazardous machining step.
 
         Requires PPE verification and workholding setup summary before submitting.
+        Persists the sign-off request to the durable workflow store (and campus web portal if bridged).
         """
-        plan = manager._workflows.get(project_id)
-        if not plan:
-            return {
-                "status": "ERROR",
-                "message": f"Project ID {project_id} not found in active workflows.",
-            }
-
-        target_step: Optional[StepInput] = None
-        for step in plan.steps:
-            if step.step_order == step_order:
-                target_step = step
-                break
-
-        if not target_step:
-            return {
-                "status": "ERROR",
-                "message": f"Step order {step_order} not found in project {project_id}.",
-            }
-
-        if not ppe_verified:
-            return {
-                "status": "PPE_NOT_VERIFIED",
-                "requires_action": "Verify safety glasses, tied-back hair, closed-toe shoes, and no loose jewelry before requesting signoff.",
-            }
-
-        target_step.safety_notes = (
-            f"[Steward Review Requested by {student_id}]: {setup_summary} (PPE Verified: Yes)"
+        return workflow_repo.request_signoff(
+            project_id=project_id,
+            step_order=step_order,
+            student_id=student_id,
+            ppe_verified=ppe_verified,
+            setup_summary=setup_summary,
         )
 
-        return {
-            "status": "PENDING_STEWARD_REVIEW",
-            "project_id": project_id,
-            "step_order": step_order,
-            "step_title": target_step.title,
-            "machines": target_step.machines_used,
-            "instructions": "Step queued for Shop Steward review. Please have on-duty Steward inspect your machine setup in person.",
-        }
+    @app.tool()
+    def approve_steward_safety_signoff(
+        project_id: int,
+        step_order: int,
+        steward_id: str,
+        notes: Optional[str] = None,
+    ) -> dict[str, Any]:
+        """Approve a pending Shop Steward safety gate after in-person setup inspection."""
+        return workflow_repo.approve_signoff(
+            project_id=project_id,
+            step_order=step_order,
+            steward_id=steward_id,
+            notes=notes,
+        )
 
     @app.tool()
     def complete_build_step(
@@ -365,55 +366,12 @@ def create_mcp_server(
         CRITICAL SAFETY GATE: If the step requires Shop Steward sign-off and has not been approved,
         completion is strictly blocked until an authorized steward signs off.
         """
-        plan = manager._workflows.get(project_id)
-        if not plan:
-            return {
-                "status": "ERROR",
-                "message": f"Project ID {project_id} not found in active workflows.",
-            }
-
-        target_step: Optional[StepInput] = None
-        for step in plan.steps:
-            if step.step_order == step_order:
-                target_step = step
-                break
-
-        if not target_step:
-            return {
-                "status": "ERROR",
-                "message": f"Step order {step_order} not found in project {project_id}.",
-            }
-
-        # Check safety gate
-        if target_step.requires_steward_signoff:
-            if not target_step.safety_approved_by and not steward_id:
-                return {
-                    "status": "BLOCKED_BY_SAFETY_GATE",
-                    "project_id": project_id,
-                    "step_order": step_order,
-                    "step_title": target_step.title,
-                    "error": (
-                        f"SAFETY LOCK: Step {step_order} ('{target_step.title}') requires "
-                        "in-person Shop Steward sign-off before it can be marked complete. "
-                        "Do not power on or operate equipment until a steward inspects your setup."
-                    ),
-                }
-
-            if steward_id:
-                target_step.safety_approved_by = steward_id
-
-        target_step.is_completed = True
-
-        all_completed = all(s.is_completed for s in plan.steps)
-        return {
-            "status": "COMPLETED",
-            "project_id": project_id,
-            "step_order": step_order,
-            "step_title": target_step.title,
-            "all_steps_completed": all_completed,
-            "approved_by": target_step.safety_approved_by,
-            "message": f"Step {step_order} successfully marked complete.",
-        }
+        return workflow_repo.complete_step(
+            project_id=project_id,
+            step_order=step_order,
+            student_id=student_id,
+            steward_id=steward_id,
+        )
 
     @app.tool()
     def ingest_university_bucket(
@@ -438,7 +396,7 @@ def create_mcp_server(
 
         try:
             reloaded = load_tenant_pack(tenant_slug=university_slug, tenant_packs_dir=packs_dir)
-            app.manager = BucketManager(reloaded)  # type: ignore[attr-defined]
+            app.manager = BucketManager(reloaded, workflow_repo=workflow_repo)  # type: ignore[attr-defined]
             app.router = ContextRouter(app.manager)  # type: ignore[attr-defined]
 
             return {
@@ -555,11 +513,19 @@ def create_mcp_server(
         except ValueError:
             return json.dumps({"error": f"Invalid project ID '{project_id}'"}, indent=2)
 
-        plan = manager._workflows.get(pid)
+        plan = app.manager.get_workflow(pid)  # type: ignore[attr-defined]
         if not plan:
             return json.dumps({"error": f"Project {project_id} not found"}, indent=2)
 
         return json.dumps(plan.model_dump(mode="json"), indent=2)
+
+    @app.resource("architect://stewards/queue")
+    def get_steward_signoff_queue() -> str:
+        """All hazardous build steps currently awaiting Shop Steward safety sign-off."""
+        pending = workflow_repo.list_pending_signoffs(
+            university_slug=app.manager.university_slug  # type: ignore[attr-defined]
+        )
+        return json.dumps(pending, indent=2)
 
     # =========================================================================
     # MCP PROMPTS
