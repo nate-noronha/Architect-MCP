@@ -130,3 +130,20 @@ This document tracks architectural decisions, vertical slice milestones, and aut
 - **Verification**:
   - Added `tests/test_http_transport.py` (`3 passed`: `/health` on Streamable HTTP, `/health` on SSE, and `/mcp` JSON-RPC `initialize` handshake).
   - Full test suite across Slices 1–7: `43 passed` in `1.56s`.
+
+---
+
+## 2026-11-14: Slice 8 — Safety Audit Telemetry (`architect_audit_logs`) & GitHub Actions CI
+
+- **Branch**: `feat/slice-8-audit-and-ci` (stacked on `feat/slice-7-http-and-deploy`)
+- **Deliverables Implemented**:
+  - `architect_mcp/db.py`:
+    - Added `AuditLogRow` (`architect_audit_logs`) table + `record_audit_event()` and `list_audit_events()` on `WorkflowRepository`.
+    - Automatically logs `PLAN_SAVED`, `SIGNOFF_REQUESTED`, `SIGNOFF_APPROVED`, `SAFETY_GATE_BLOCKED`, and `STEP_COMPLETED` compliance events.
+  - `architect_mcp/server.py`:
+    - Emits `HARNESS_ASSEMBLED` telemetry on `assemble_context_harness` calls.
+    - Added `architect://audit/recent` MCP resource exposing the latest 25 safety & tool audit events.
+  - `.github/workflows/ci.yml`: Automated CI pipeline running `architect-mcp validate-pack --all` and `pytest -v` on every push and PR.
+- **Verification**:
+  - Added `tests/test_audit_telemetry.py` (`1 passed` end-to-end across all 6 audit event types).
+  - Full test suite across Slices 1–8: `44 passed` in `1.86s`.
