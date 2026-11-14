@@ -2,7 +2,7 @@
 
 import re
 from pathlib import Path
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
 
 from architect_mcp.loaders import load_tenant_pack
 from architect_mcp.models import (
@@ -16,6 +16,9 @@ from architect_mcp.models import (
     Subsystem,
     TenantPack,
 )
+
+if TYPE_CHECKING:
+    from architect_mcp.db import WorkflowRepository
 
 _TOKEN_RE = re.compile(r"[a-z0-9]+")
 _STOPWORDS = frozenset(
@@ -62,8 +65,13 @@ def tokenize(text: str) -> set[str]:
 class BucketManager:
     """Indexes and serves the 5 modular context buckets for a university tenant pack."""
 
-    def __init__(self, tenant_pack: TenantPack) -> None:
+    def __init__(
+        self,
+        tenant_pack: TenantPack,
+        workflow_repo: Optional["WorkflowRepository"] = None,
+    ) -> None:
         self.pack = tenant_pack
+        self.workflow_repo = workflow_repo
         self._workflows: dict[int, BuildPlanSpec] = {}
         self._certs_by_id: dict[str, CertificationTier] = {
             c.id: c for c in tenant_pack.certifications
@@ -80,12 +88,13 @@ class BucketManager:
         cls,
         tenant_slug: Optional[str] = None,
         tenant_packs_dir: Optional[Path] = None,
+        workflow_repo: Optional["WorkflowRepository"] = None,
     ) -> "BucketManager":
         """Load a university tenant pack from disk and initialize its bucket index."""
         pack = load_tenant_pack(
             tenant_slug=tenant_slug, tenant_packs_dir=tenant_packs_dir
         )
-        return cls(pack)
+        return cls(pack, workflow_repo=workflow_repo)
 
     @property
     def university_slug(self) -> str:
@@ -94,7 +103,11 @@ class BucketManager:
     def bucket_summary(self) -> dict[str, int]:
         """Return item counts across all 5 buckets including active workflows."""
         counts = self.pack.bucket_counts()
-        counts[BucketKind.WORKFLOWS.value] = len(self._workflows)
+        counts[BucketKind.WORKFLOWS.value] = (
+            self.workflow_repo.count_plans()
+            if self.workflow_repo is not None
+            else len(self._workflows)
+        )
         return counts
 
     # ------------------------------------------------------------------
@@ -228,13 +241,25 @@ class BucketManager:
     # bucket://workflows
     # ------------------------------------------------------------------
     def register_workflow(self, plan: BuildPlanSpec) -> BuildPlanSpec:
-        """Store or update an active build plan in memory (DB-backed in Slice 4)."""
+        """Store or update an active build plan (persisted via WorkflowRepository when configured)."""
+        if self.workflow_repo is not None:
+            return self.workflow_repo.save_plan(plan)
         key = plan.project_id if plan.project_id is not None else (len(self._workflows) + 1)
         stored = plan.model_copy(update={"project_id": key})
         self._workflows[key] = stored
         return stored
 
+    def get_workflow(self, project_id: int) -> Optional[BuildPlanSpec]:
+        """Retrieve a single build plan by project ID."""
+        if self.workflow_repo is not None:
+            return self.workflow_repo.get_plan(project_id)
+        return self._workflows.get(project_id)
+
     def list_workflows(self, student_id: Optional[str] = None) -> list[BuildPlanSpec]:
+        if self.workflow_repo is not None:
+            return self.workflow_repo.list_plans(
+                student_id=student_id, university_slug=self.university_slug
+            )
         plans = list(self._workflows.values())
         if student_id:
             plans = [p for p in plans if p.student_id == student_id]
