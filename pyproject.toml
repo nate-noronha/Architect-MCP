@@ -18,6 +18,7 @@ dependencies = [
 
 [project.scripts]
 architect-mcp = "architect_mcp.server:main"
+architect-admin = "architect_mcp.cli:entrypoint"
 
 [project.optional-dependencies]
 dev = [

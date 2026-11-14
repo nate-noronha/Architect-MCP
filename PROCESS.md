@@ -85,3 +85,20 @@ This document tracks architectural decisions, vertical slice milestones, and aut
 - **Verification**:
   - Added `tests/test_persistent_workflows.py` (`3 passed`: server-restart persistence, companion web app DB bridge sync, and missing-schema no-op safety).
   - Full test suite across Slices 1–4: `30 passed` in `0.88s`.
+
+---
+
+## 2026-11-14: Slice 5 — Admin & Compliance CLI (`architect-admin`) & Full Compliance Suite
+
+- **Branch**: `feat/slice-5-admin-cli` (stacked on `feat/slice-4-persistent-workflows`)
+- **Deliverables Implemented**:
+  - `architect_mcp/cli.py`:
+    - `list-tenants`: Lists discovered university tenant packs and bucket counts.
+    - `validate-pack`: Cross-bucket integrity validator (`--all`, `--json`) checking certs, machines, inventory, and pinned safety protocols.
+    - `ingest-csv`: Parses and validates makerspace inventory CSVs (`--apply` installs into target tenant `inventory/` and re-validates).
+    - `inspect-harness`: Runs `ContextRouter.assemble` on any build prompt and reports token budget usage, hazard warnings, and steward gate triggers.
+  - `architect_mcp/server.py` & `pyproject.toml`: Registered `architect-admin` console script and dispatched admin subcommands cleanly through `architect-mcp <subcommand>` while preserving default MCP server mode.
+  - `README.md`: Documented Admin & Compliance CLI commands.
+- **Verification**:
+  - Added `tests/test_admin_cli.py` (`6 passed`).
+  - Full test suite across all 5 slices: `36 passed` in `0.82s`.

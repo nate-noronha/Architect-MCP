@@ -591,7 +591,12 @@ server = create_mcp_server()
 
 
 def main() -> None:
-    """CLI entrypoint for running the Architect-MCP server."""
+    """CLI entrypoint for running the Architect-MCP server or admin subcommands."""
+    from architect_mcp.cli import ADMIN_SUBCOMMANDS, main as admin_main
+
+    if any(arg in ADMIN_SUBCOMMANDS for arg in sys.argv[1:]):
+        sys.exit(admin_main(sys.argv[1:]))
+
     parser = argparse.ArgumentParser(
         description="Architect-MCP: Portable Makerspace Context Harness & MCP Server"
     )
