@@ -1,0 +1,21 @@
+university_slug: university-template
+university_name: Example University (Starter Template)
+makerspace_name: Campus Makerspace & Prototyping Lab
+location: Engineering Building, Room 101
+website: https://makerspace.example.edu
+contact_email: makerspace@example.edu
+default_token_budget: 4000
+areas:
+  - slug: main-lab
+    name: Main Prototyping Floor
+    facility_code: MAKERSPACE
+    description: General assembly, 3D printing, laser cutting, and electronics benches.
+    required_base_cert: general-orientation
+  - slug: machine-shop
+    name: Machine Shop
+    facility_code: MACHINE_SHOP
+    description: Manual and CNC metalworking equipment requiring steward supervision.
+    required_base_cert: machine-shop-101
+emergency_contacts:
+  campus_safety: "555-0100"
+  shop_director: "makerspace-director@example.edu"

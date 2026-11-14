@@ -1,0 +1,20 @@
+certifications:
+  - id: general-orientation
+    name: General Makerspace Orientation
+    level: 1
+    description: Baseline lab safety, PPE, and emergency shutoff orientation.
+    granting_area: main-lab
+    prerequisites: []
+    unlocks_machines:
+      - prusa-fdm-printer
+    requires_in_person_checkoff: false
+  - id: machine-shop-101
+    name: Machine Shop Basic Safety
+    level: 2
+    description: Supervised mill and lathe operation checkoff.
+    granting_area: machine-shop
+    prerequisites:
+      - general-orientation
+    unlocks_machines:
+      - manual-vertical-mill
+    requires_in_person_checkoff: true

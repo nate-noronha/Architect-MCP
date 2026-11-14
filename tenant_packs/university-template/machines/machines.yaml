@@ -1,0 +1,45 @@
+machines:
+  - id: prusa-fdm-printer
+    name: Prusa MK4 3D Printer
+    model_number: MK4
+    area: main-lab
+    subsystems:
+      - fabrication
+    status: operational
+    units_available: 4
+    units_total: 4
+    required_cert: general-orientation
+    requires_steward_signoff: false
+    work_envelope: "250 x 210 x 220 mm"
+    allowed_materials:
+      - PLA
+      - PETG
+    forbidden_materials:
+      - PVC
+    description: Standard FDM 3D printer for enclosures and brackets.
+    tags:
+      - 3d print
+      - fdm
+      - enclosure
+
+  - id: manual-vertical-mill
+    name: Manual Vertical Knee Mill
+    model_number: Series 1
+    area: machine-shop
+    subsystems:
+      - mechanical
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: machine-shop-101
+    requires_steward_signoff: true
+    work_envelope: "300 x 150 x 150 mm"
+    allowed_materials:
+      - 6061 Aluminum
+      - Brass
+      - Delrin
+    description: Manual 3-axis vertical milling machine.
+    tags:
+      - mill
+      - aluminum
+      - machining

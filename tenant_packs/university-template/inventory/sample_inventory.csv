@@ -1,0 +1,4 @@
+sku,name,category,facility,location,quantity,unit
+TPL-FAST-M3,M3 x 10mm Socket Head Cap Screw,Fasteners,main-lab,Cabinet 1 -> Drawer A,250,pcs
+TPL-MAT-PLA,1.75mm PLA Filament Spool,3D Printing,main-lab,Filament Rack 2,8,spools
+TPL-ELEC-WIRE,22AWG Hookup Wire Kit,Electronics,main-lab,EE Bench -> Bin 3,12,kits
