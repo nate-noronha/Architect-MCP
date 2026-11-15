@@ -107,6 +107,17 @@ def create_mcp_server(
             token_budget=budget,
         )
 
+        workflow_repo.record_audit_event(
+            university_slug=payload.university_slug,
+            event_type="HARNESS_ASSEMBLED",
+            actor_id=student_id,
+            steward_gate_triggered=payload.steward_signoff_likely_required,
+            summary=(
+                f"Context harness packed {payload.total_tokens_used}/{payload.token_budget} tokens "
+                f"(subsystems={[s.value for s in payload.inferred_subsystems]})"
+            ),
+        )
+
         return {
             "university_slug": payload.university_slug,
             "university_name": payload.university_name,
@@ -526,6 +537,15 @@ def create_mcp_server(
             university_slug=app.manager.university_slug  # type: ignore[attr-defined]
         )
         return json.dumps(pending, indent=2)
+
+    @app.resource("architect://audit/recent")
+    def get_recent_audit_log() -> str:
+        """Recent safety gate & MCP tool telemetry events for compliance auditing."""
+        events = workflow_repo.list_audit_events(
+            university_slug=app.manager.university_slug,  # type: ignore[attr-defined]
+            limit=25,
+        )
+        return json.dumps(events, indent=2)
 
     # =========================================================================
     # MCP PROMPTS

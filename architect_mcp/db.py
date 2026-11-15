@@ -86,6 +86,21 @@ class WorkflowBOMRow(SQLModel, table=True):
     external_purchase_note: Optional[str] = Field(default=None)
 
 
+class AuditLogRow(SQLModel, table=True):
+    """Structured safety & MCP tool telemetry event for makerspace compliance."""
+
+    __tablename__ = "architect_audit_logs"
+
+    id: Optional[int] = Field(default=None, primary_key=True)
+    university_slug: str = Field(index=True, max_length=120)
+    event_type: str = Field(index=True, max_length=64)
+    actor_id: Optional[str] = Field(default=None, index=True, max_length=255)
+    project_id: Optional[int] = Field(default=None, index=True)
+    steward_gate_triggered: bool = Field(default=False, index=True)
+    summary: str
+    created_at: datetime = Field(default_factory=_utcnow)
+
+
 # =============================================================================
 # Optional Companion Campus Web App Bridge
 # =============================================================================
@@ -284,15 +299,69 @@ class WorkflowRepository:
         self.init_db()
 
     def init_db(self) -> None:
-        """Create Architect-MCP workflow tables if they do not exist."""
+        """Create Architect-MCP workflow and audit tables if they do not exist."""
         SQLModel.metadata.create_all(
             self.engine,
             tables=[
                 WorkflowProjectRow.__table__,
                 WorkflowStepRow.__table__,
                 WorkflowBOMRow.__table__,
+                AuditLogRow.__table__,
             ],
         )
+
+    def record_audit_event(
+        self,
+        university_slug: str,
+        event_type: str,
+        summary: str,
+        actor_id: Optional[str] = None,
+        project_id: Optional[int] = None,
+        steward_gate_triggered: bool = False,
+    ) -> None:
+        """Persist a structured safety/telemetry audit event."""
+        with Session(self.engine) as session:
+            session.add(
+                AuditLogRow(
+                    university_slug=university_slug,
+                    event_type=event_type,
+                    actor_id=actor_id,
+                    project_id=project_id,
+                    steward_gate_triggered=steward_gate_triggered,
+                    summary=summary,
+                    created_at=_utcnow(),
+                )
+            )
+            session.commit()
+
+    def list_audit_events(
+        self,
+        university_slug: Optional[str] = None,
+        event_type: Optional[str] = None,
+        limit: int = 25,
+    ) -> list[dict[str, Any]]:
+        """Retrieve recent audit telemetry events ordered newest-first."""
+        with Session(self.engine) as session:
+            stmt = select(AuditLogRow)
+            if university_slug:
+                stmt = stmt.where(AuditLogRow.university_slug == university_slug)
+            if event_type:
+                stmt = stmt.where(AuditLogRow.event_type == event_type)
+            stmt = stmt.order_by(AuditLogRow.id.desc()).limit(limit)
+            rows = session.exec(stmt).all()
+            return [
+                {
+                    "id": r.id,
+                    "university_slug": r.university_slug,
+                    "event_type": r.event_type,
+                    "actor_id": r.actor_id,
+                    "project_id": r.project_id,
+                    "steward_gate_triggered": r.steward_gate_triggered,
+                    "summary": r.summary,
+                    "created_at": r.created_at.isoformat(),
+                }
+                for r in rows
+            ]
 
     def _hydrate_plan(
         self,
@@ -442,6 +511,20 @@ class WorkflowRepository:
                     session.add(proj)
                     session.commit()
 
+            gated = any(s.requires_steward_signoff for s in hydrated.steps)
+            session.add(
+                AuditLogRow(
+                    university_slug=hydrated.university_slug,
+                    event_type="PLAN_SAVED",
+                    actor_id=hydrated.student_id,
+                    project_id=proj.id,
+                    steward_gate_triggered=gated,
+                    summary=f"Saved build plan '{hydrated.title}' ({len(hydrated.steps)} steps)",
+                    created_at=_utcnow(),
+                )
+            )
+            session.commit()
+
             return hydrated
 
     def get_plan(self, project_id: int) -> Optional[BuildPlanSpec]:
@@ -514,6 +597,17 @@ class WorkflowRepository:
             proj.updated_at = _utcnow()
             session.add(step)
             session.add(proj)
+            session.add(
+                AuditLogRow(
+                    university_slug=proj.university_slug,
+                    event_type="SIGNOFF_REQUESTED",
+                    actor_id=student_id,
+                    project_id=project_id,
+                    steward_gate_triggered=True,
+                    summary=f"Steward sign-off requested for step {step_order} ('{step.title}')",
+                    created_at=_utcnow(),
+                )
+            )
             session.commit()
 
             if self.bridge is not None:
@@ -569,6 +663,17 @@ class WorkflowRepository:
 
             session.add(step)
             session.add(proj)
+            session.add(
+                AuditLogRow(
+                    university_slug=proj.university_slug,
+                    event_type="SIGNOFF_APPROVED",
+                    actor_id=steward_id,
+                    project_id=project_id,
+                    steward_gate_triggered=True,
+                    summary=f"Steward '{steward_id}' approved step {step_order} ('{step.title}')",
+                    created_at=now,
+                )
+            )
             session.commit()
 
             if self.bridge is not None:
@@ -615,6 +720,18 @@ class WorkflowRepository:
 
             if target_step.requires_steward_signoff:
                 if not target_step.safety_approved_by and not steward_id:
+                    session.add(
+                        AuditLogRow(
+                            university_slug=proj.university_slug,
+                            event_type="SAFETY_GATE_BLOCKED",
+                            actor_id=student_id,
+                            project_id=project_id,
+                            steward_gate_triggered=True,
+                            summary=f"Blocked unapproved completion of hazardous step {step_order} ('{target_step.title}')",
+                            created_at=_utcnow(),
+                        )
+                    )
+                    session.commit()
                     return {
                         "status": "BLOCKED_BY_SAFETY_GATE",
                         "project_id": project_id,
@@ -641,6 +758,17 @@ class WorkflowRepository:
 
             session.add(target_step)
             session.add(proj)
+            session.add(
+                AuditLogRow(
+                    university_slug=proj.university_slug,
+                    event_type="STEP_COMPLETED",
+                    actor_id=student_id,
+                    project_id=project_id,
+                    steward_gate_triggered=target_step.requires_steward_signoff,
+                    summary=f"Completed step {step_order} ('{target_step.title}')",
+                    created_at=now,
+                )
+            )
             session.commit()
 
             if self.bridge is not None:
