@@ -1,0 +1,152 @@
+machines:
+  - id: uls-ils1275-laser
+    name: Universal Laser Systems ILS12.75 Dual-Laser Cutter
+    model_number: ILS12.75
+    area: makerspace-110
+    subsystems:
+      - fabrication
+      - mechanical
+    status: operational
+    units_available: 4
+    units_total: 4
+    required_cert: jacobs-laser-cutter-cert
+    requires_steward_signoff: false
+    work_envelope: "48 x 24 x 12 inch"
+    allowed_materials: [Plywood, Acrylic, Cardboard, Leather, Matboard]
+    forbidden_materials: [PVC, Vinyl, Polycarbonate, Fiberglass]
+    manual_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+    description: Dual-beam CO2 laser cutters in Rooms 110 and 120 for precision sheet cutting and engraving.
+    tags: [laser, acrylic, plywood, enclosure, engraving]
+
+  - id: ultimaker-prusa-fdm
+    name: Ultimaker & Prusa FDM 3D Printer Fleet
+    model_number: Ultimaker S5 / Prusa MK4
+    area: makerspace-110
+    subsystems:
+      - fabrication
+      - mechanical
+    status: operational
+    units_available: 12
+    units_total: 12
+    required_cert: jacobs-maker-pass
+    requires_steward_signoff: false
+    work_envelope: "330 x 240 x 300 mm"
+    allowed_materials: [PLA, PETG, ABS]
+    forbidden_materials: [PVC]
+    manual_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+    description: Self-service desktop FDM printers in the All-Purpose Makerspace.
+    tags: [3d print, fdm, pla, ultimaker, prusa, enclosure]
+
+  - id: sawstop-table-saw
+    name: SawStop 10" Industrial Cabinet Table Saw
+    model_number: ICS31230
+    area: wood-cnc-shop-122b
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 2
+    units_total: 2
+    required_cert: jacobs-woodshop-cert
+    requires_steward_signoff: true
+    work_envelope: "36 inch rip capacity"
+    allowed_materials: [Hardwood, Plywood, MDF]
+    forbidden_materials: [Metal, Pressure-Treated Lumber]
+    manual_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+    description: Industrial flesh-sensing cabinet table saw in Basement Room 122B.
+    tags: [table saw, sawstop, wood, lumber, plywood]
+
+  - id: shopbot-prsalpha-cnc
+    name: ShopBot PRSalpha 96-48 4'x8' CNC Router
+    model_number: PRSalpha 96-48
+    area: wood-cnc-shop-122b
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: jacobs-cnc-waterjet-cert
+    requires_steward_signoff: true
+    work_envelope: "96 x 48 x 6 inch"
+    allowed_materials: [Plywood, MDF, Hardwood, Acrylic, Machinable Wax]
+    forbidden_materials: [Steel, Titanium, Glass]
+    manual_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+    description: Full-sheet 3-axis CNC gantry router in Room 122B for large woodworking and mold milling.
+    tags: [cnc, shopbot, router, plywood, wood]
+
+  - id: omax-2626-waterjet
+    name: OMAX 2626 JetMachining Abrasive Waterjet Center
+    model_number: OMAX 2626
+    area: wood-cnc-shop-122b
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: jacobs-cnc-waterjet-cert
+    requires_steward_signoff: true
+    work_envelope: "26 x 26 inch"
+    allowed_materials: [Aluminum, Stainless Steel, Mild Steel, Brass, Copper, Acrylic]
+    forbidden_materials: [Tempered Glass]
+    manual_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+    description: Precision abrasive garnet waterjet for cutting metal plates and composites; abrasive charged per minute via Material Store.
+    tags: [waterjet, omax, metal, aluminum, steel, garnet]
+
+  - id: fablight-fl3000-laser
+    name: FabLight FL3000 3D Fiber Laser Sheet & Tube Metal Cutter
+    model_number: FL3000
+    area: wood-cnc-shop-122b
+    subsystems:
+      - mechanical
+      - fabrication
+    status: operational
+    units_available: 1
+    units_total: 1
+    required_cert: jacobs-cnc-waterjet-cert
+    requires_steward_signoff: true
+    work_envelope: "48 x 24 inch sheet / rotary tube"
+    allowed_materials: [Mild Steel, Stainless Steel, Aluminum]
+    forbidden_materials: [PVC, Galvanized Steel, Copper]
+    manual_url: https://store.jacobshall.org/
+    description: Fiber laser cutter for sheet metal plates and square tubing stocked in the Jacobs Material Store.
+    tags: [fablight, fiber laser, stainless steel, mild steel, tube, sheet metal]
+
+  - id: formlabs-form4-sla
+    name: Formlabs Form 4 SLA Resin 3D Printer
+    model_number: Form 4
+    area: advanced-lab-110a
+    subsystems:
+      - fabrication
+      - mechanical
+    status: operational
+    units_available: 3
+    units_total: 3
+    required_cert: jacobs-cnc-waterjet-cert
+    requires_steward_signoff: false
+    work_envelope: "200 x 125 x 210 mm"
+    allowed_materials: [Formlabs Clear, Tough 1500, Rigid 10K, Durable, Flexible 80A]
+    forbidden_materials: [Unapproved Third-Party Resin]
+    manual_url: https://store.jacobshall.org/
+    description: High-detail masked SLA resin printer in Advanced Prototyping Lab 110A.
+    tags: [sla, resin, formlabs, form 4, 3d print]
+
+  - id: juki-ddl8700-sewing
+    name: Juki DDL-8700 Industrial Lockstitch Sewing Machine
+    model_number: DDL-8700
+    area: makerspace-110
+    subsystems:
+      - textiles
+      - assembly
+    status: operational
+    units_available: 2
+    units_total: 2
+    required_cert: jacobs-maker-pass
+    requires_steward_signoff: false
+    work_envelope: "18 inch throat"
+    allowed_materials: [Canvas, Nylon Webbing, Cotton, Leather]
+    forbidden_materials: [Sheet Metal]
+    manual_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+    description: Industrial high-speed sewing station in the All-Purpose Makerspace.
+    tags: [sewing, juki, textiles, fabric]

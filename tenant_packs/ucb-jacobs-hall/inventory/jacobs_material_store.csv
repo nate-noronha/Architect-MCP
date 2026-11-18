@@ -1,0 +1,251 @@
+sku,name,category,facility,location,quantity,unit
+formlabs-resin-flexible-80a-form-4,Formlabs Resin - Flexible 80A (Form 4),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-resin-durable-form-4,Formlabs Resin - Durable (Form 4),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-resin-rigid-10k-form-4,Formlabs Resin - Rigid 10K (Form 4),3D Printing Material,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+formlabs-resin-elastic-form-4,Formlabs Resin - Flexible 50A (Form 4),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-resin-white-form-4,Formlabs Resin - White (Form 4),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-resin-fast-model-form-4,Formlabs Resin - Fast Model (Form 4),3D Printing Material,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+formlabs-resin-grey-form-4,Formlabs Resin - Grey (Form 4),3D Printing Material,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+formlabs-resin-tough-1500-form-4,Formlabs Resin - Tough 1500 V2 (Form 4),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-clear-resin-form-4,Formlabs Resin - Clear (Form 4),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+markforged-kevlar-priced-per-cubic-centimeter,Markforged Kevlar (priced per cubic centimeter),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+24x24x-1-8-mild-steel-plate,"24"" x 24"" x 0.125"" Mild Steel Plate (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+fortus-model-material-natural-abs-priced-per-cubic-inch,"FORTUS Model Material - Natural (ABS-M30, priced per cubic inch)",3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+fortus-model-material-gray-abs-per-cubic-inch,"FORTUS Model Material - Gray (ABS-M30, priced per cubic inch)",3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+stratasys-fortus-model-material-white-abs-per-cubic-inch,"FORTUS Model Material - White (ABS-M30, priced per cubic inch)",3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+fortus-model-material-blue-abs-per-cubic-inch,"FORTUS Model Material - Blue (ABS-M30, priced per cubic inch)",3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+2541,Adafruit NeoPixel Digital RGB LED Strip - White 60 LED 1m - WHITE,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+j55-resin-veroultrawhite-rgd824-priced-per-gram,J55 Resin - VeroUltraWhiteS RGD824 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-veroultraclear-rgd821-priced-per-gram,J55 Resin - VeroUltraClear RGD821 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-elasticoblack-priced-per-gram,J55 Resin - ElasticoBlack (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-water-soluble-support-wss150-priced-per-gram,J55 Resin - Water Soluble Support WSS150 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-digital-abs-part-a-rgd515-priced-per-gram,J55 Resin - Digital ABS - Part A - RGD515 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-digital-abs-part-b-rgd531-priced-per-gram,J55 Resin - Digital ABS - Part B - RGD531 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-veromagentav-rgd852-priced-per-gram,J55 Resin - Magenta - VeroMagentaV - RGD852 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-verocyanv-rgd845-priced-per-gram,J55 Resin - Cyan - VeroCyanV - RGD845 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+j55-resin-veroyellowv-rgd845-priced-per-gram,J55 Resin - Yellow - VeroYellowV - RGD845 (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+fortus-model-material-abs-m30-priced-per-cubic-inch,"FORTUS Model Material - Black (ABS-M30, priced per cubic inch)",3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+4564,Raspberry Pi 4 Model B - 8 GB RAM,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+141230,"Plywood - 1/8"" x 11.5"" (Variable) x 30""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+181124,"Plywood - 1/8"" x 11.5"" Variable x 24""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+3099,Raspberry Pi Camera Board v2 - 8 Megapixels,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+plywood-1-4-x-10-x-30,"Plywood - 1/4"" x 10"" x 30""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+plywood-1-4-x-10-x-24,"Plywood - 1/4"" x 10"" x 24""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+3405,Adafruit HUZZAH32 – ESP32 Feather Board,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+4266,16GB Card with NOOBS 3.1 for Raspberry Pi Computers including 4,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+7538A14,"Epoxy Adhesive, Packet, 3.5 g, Amber, 45 min Work Life",Adhesive,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+1939-1997-ND,AC/DC WALL MOUNT ADAPTER 5V 10W (USB-C),Power,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+2987-DH-20M50052-ND,USB 2.0 Cable A Male to C Male 3.28' (1.00m) Shielded,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+markforged-black-tpu-filament-priced-per-cubic-centimeter,Markforged - Smooth TPU 95A Black Filament (priced per Cubic Centimeter),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+DSFXTU,Smooth-On Dragon Skin FX-Pro (907-gram Trial Unit),Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+DSFX,Smooth-On Dragon Skin FX-Pro (price per ten grams),Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+SC37,Sorta Clear 37 (price per ten grams),Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+SMOOTH60D,Smooth-Cast Semi - Rigid Line 60D Series (priced per ten grams),Science & Laboratory,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+ECO0030,Platinum Silicone Rubber - Ecoflex 00-30 (priced per gram),Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,g
+uxcellValve6,"Miniature Solenoid Valve, 6v",Electronics,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+B07BK1QL5T,L298N Motor Drive Controller Board,Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+LGDehome-024,DC 5V - 36V 15A MOSFET Speed Controller,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+IRF520-01,MOSFET Driver Module (IRF520),Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+MCP3008,MCP3008 - 8-Channel 10-Bit ADC With SPI Interface,Electronics,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+1-square-tube-x-48-x-0-120-mild-steel-priced-piece-fablight,"1"" Square Tube x 48"" x 0.120"" Mild Steel, Priced / Piece (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24-x-24-x-0-125-11ga-stainless-steel-plate-fablight,"24"" x 24"" x 0.125"" (11ga.) Stainless Steel Plate (Fablight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+0-063-stainless-steel-plate-fablight,"24"" x 24"" x 0.063"" (16ga.) Stainless Steel Plate (Fablight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+0-035-stainless-steel-plate-fablight,"24"" x 24"" x 0.035"" (20ga.) Stainless Steel Plate (Fablight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+CASTING001,Platinum Silicone Rubber - Mold Star 15 Slow (kit),Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+cable-cat-5e-unshielded-blue-2m,CABLE CAT.5E UNSHIELDED BLUE 2M,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+993-1333-ND,10W Compact Fixed Blade USB Adapter,Power,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+4007,Ultrasonic Distance Sensor - 3V or 5V - HC-SR04 compatible - RCWL-1601,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+4883,Raspberry Pi Pico RP2040 with Loose Unsoldered Headers,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+3463,Adafruit Precision NXP 9-DOF Breakout Board - FXOS8700 + FXAS21002,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+659,FLORA - Wearable Electronic Platform: Arduino-compatible - v3,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+3-4-plywood-shopbot,"3/4"" Plywood (Shopbot)",Shopbot,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+1-2-plywood-shopbot,"1/2"" Plywood (Shopbot)",Shopbot,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+3KYZ1,"Epoxy Adhesive, Packet, 3.5 g, Amber, 3 min Work Life",Adhesive,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+B08GXCMX5Z,"Super glue, single use, 0.036 oz. (1 g.)",Adhesive,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+900803,Foam Board,Foam Boards,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+1528-1594-ND,Neopixel Stick (RGBW Natural White 4500K),Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+1528-4356-ND,NeoPixel Mini Button PCB,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+1528-2797-ND,Push-Pull Solenoid (5V - 6V),Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+913-2673,Raspberry Pi PiNoir Camera V2,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+1738-FIT0804-ND,DC Motor Linear Actuator,Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+MDF03,"3/4"" MDF : Quarter Panel - 2ft x 4ft",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+MDF02,"3/4"" MDF : Half Panel - 4ft x 4ft",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+002,"Approved users only:  Canon Poster Printer: 36"" wide adhesive-backed (priced per foot)",Printer Paper,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+MDF01,"3/4"" MDF : Full Panel - 4ft x 8ft",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+objet-polyjet-model-material-agilus30-clear-priced-per-gram,Objet Polyjet Model Material - Agilus30 Clear (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+markforged-fiberglass-per-cubic-centimeter,Markforged Fiberglass (priced per cubic centimeter),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+markforged-carbon-fiber-cff-per-cubic-centimeter,Markforged Carbon Fiber CFF (priced per cubic centimeter),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+ultimaker-filament-breakaway-priced-per-gram,Ultimaker Filament: Breakaway (priced per gram),3D Printing Material,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,g
+2-mild-steel-square-tube-0-063-fablight-priced-per-inch,"2"" Mild Steel Square Tube, 0.125"" [FabLight] - priced per inch",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+1-mild-steel-square-tube-0-063-fablight-priced-per-inch,"1"" Mild Steel Square Tube, 0.063"" [FabLight] - priced per inch",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+FOAM06,Extruded Polystyrene (XPS) Foam [Shopbot] (priced per square foot),Shopbot,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+marforged-hsht-fiberglass-per-cubic-centimeter,Markforged HSHT Fiberglass (priced per cubic centimeter),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+markforged-onyx-filament-per-cubic-inch,Markforged Onyx Filament (priced per Cubic Centimeter),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,cu_in
+001,"Extruded Polystyrene (XPS) 2' x 4' x 2"" Foam [Shopbot]",Shopbot,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+formlabs-standard-draft-resin-form3-print-material-priced-per-ml,Formlabs - Standard - Draft Resin - Form3 Print Material (priced per ml),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-standard-clear-resin-form3-print-material-priced-per-ml,Formlabs - Standard - Clear Resin - Form3 Print Material (priced per ml),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+1583,16GB Card with NOOBS 3.0,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+formlabs-engineering-durable-resin-form3-print-material-per-ml,Formlabs - Engineering - Silicone 40A Resin - Form3 Print Material (priced per ml),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+formlabs-standard-grey-resin-form3-print-material-per-ml,Formlabs - Standard - Grey Resin - Form3 Print Material (priced per ml),3D Printing Material,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+formlabs-standard-white-resin-form3-print-material-per-ml,Formlabs - Standard - White Resin - Form3 Print Material (priced per ml),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,pcs
+DB001,"Delrin, Black, Othermill / Bantam Tools",Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+DW001,"Delrin, White, Othermill / Bantam Tools",Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+MW001,"Machining Wax, Othermill / Bantam Tools",Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+0520,Ease Release 205,Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+0720,Vytaflex 50,Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+266,"Premium Female/Female Jumper Wires - 40 x 6"" (150mm)",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+826,"Premium Male/Female Jumper Wires - 40 x 6"" (150mm)",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+SBH341AS-ND,"BATT HOLDER 4-AA CELLS, ON/OFF COVER",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+objet-polyjet-model-material-rgd531-digital-abs-priced-per-gram,Objet Polyjet Model Material - RGD531 Digital ABS Part B (priced per gram),3D Printing (Advanced Lab),advanced-lab-110a,Jacobs Material Store -> Room 110A Advanced Lab,15,g
+lulzbot-taz-6-3mm-pla-filament,Lulzbot TAZ 6 3mm PLA Filament (priced per gram),3D Printing Material,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,g
+platinum-silicone-rubber-mold-star-15-slow,Platinum Silicone Rubber - Mold Star 15 Slow (priced per gram),Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,g
+lifecasting-alja-safe,Lifecasting Alja-Safe Starter Kit,Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+1-round-tube-x-48-x-0-063-mild-steel-priced-piece-fablight,"1"" Round Tube x 48"" x 0.063"" Mild Steel, Priced / Piece (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+2-square-tube-x-48-x-0-125-mild-steel-priced-piece-fablight,"2"" Square Tube x 48"" x 0.125"" Mild Steel, Priced / Piece (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+1-square-tube-0-063-mild-steel-priced-foot-fablight,"1"" Square Tube x 48"" x 0.063"" Mild Steel, Priced / Piece (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+24-x-48-x-0-035-mild-steel-sheet-fablight,"24"" x 48"" x 0.063"" Mild Steel Full Sheet (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+24-x-24-x-0-035-6061-aluminum-plate-fablight,"24"" x 24"" x 0.032"" 6061 Aluminum Plate (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24-x-24-x-0-063-6061-aluminum-plate-fablight,"24"" x 24"" x 0.063"" 6061 Aluminum Plate (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24-x-24-x-0-125-mild-steel-plate-omax,"24"" x 24"" x 0.125"" Mild Steel Plate (Omax)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24-x-24-x-0-030-mild-steel-plate-fablight,"24"" x 24"" x 0.035"" Mild Steel Plate (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24x24x-0-060-mild-steel-plate-fablight,"24"" x 24"" x 0.063"" Mild Steel Plate (FabLight)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+16-gb-flash-drive,16 GB Flash Drive,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+3387,Adafruit 9-DOF Accel/Mag/Gyro+Temp Breakout Board - LSM9DS1,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+loctite-professional-fast-set-super-glue-0-71-oz-clear,"Loctite Professional Fast Set Super Glue, 0.71 Oz, Clear",Adhesive,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+1-2-solid-round-bar-cold-rolled-steel-priced-foot,"1/2"" Solid Round Bar, Cold Rolled Steel, priced / foot",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+1-8-x2-flat-bar-mild-steel-priced-foot,"1/8"" x 2"" Flat Bar, Mild Steel, priced / foot",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+1x1x-1-8-angle-iron-mild-steel-priced-foot,"1"" x 1"" x 0.125"" Angle Iron, Mild Steel, priced / foot",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+thank-you-for-your-generosity,Thank you for your generosity!,Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+2884,FeatherWing Proto - Prototyping Add-on For All Feather Boards,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+14578,USB Wall Charger 2.4A,Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+B01CU1EC6Y,"Anker PowerCore 5000, Ultra-Compact 5000mAh External Battery",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+instructor-use-only-canon-large-format-poster-printer-single-weight-matte-priced-per-foot,"Approved users only:  Canon Poster Printer: 36"" wide (priced per foot)",Printer Paper,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+758,"Premium Male/Male Jumper Wires - 40 x 6"" (150mm)",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+over-the-glass-safety-glasses,Over-The-Glass Safety Glasses,Prototyping Supply,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+116-pet-g-for-vacuforming-clear,"0.116"" PET-G for Vacuforming, Clear",Vacuformer,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+1381,VS1053 Codec + MicroSD Breakout - MP3/WAV/MIDI/OGG Play + Record - v4,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+1-square-tube-16-ga-mild-steel-priced-foot,"1"" Square Tube, 16 ga. Mild Steel, priced / foot",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+1-1-2-x-3-4-rectangular-tubing-16ga-mild-steel-price-foot,"1.5"" x 0.75"" x 0.059"" (16ga) Rectangular Tubing Mild Steel price/ foot",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+1-1-2-square-tube-16a-mild-steel-priced-linear-feet,"1.5"" Square Tube, 16a Mild Steel, priced / linear feet",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+omax-80-grit-abrasive-garnet-1-minute-of-cut-time,"OMAX Water jet 80 grit abrasive garnet, priced per 1 minute of cut time",Waterjet,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,min
+497-16592-ND,STM32 Nucleo Board,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+24x24x-1-4-mild-steel-plate,"24"" x 24"" x 0.250"" Mild Steel Plate (Omax)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24x24x-1-8-6061-aluminium-plate,"24"" x 24"" x 0.125"" 6061 Aluminum Plate (Omax)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+24x24x-1-4-6061-aluminum-plate,"24"" x 24"" x 0.250"" 6061 Aluminum Plate (Omax)",Metal,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+9683K17,"Wood Dowel, 1/2"" Diameter",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+9683K13,"Wood Dowel, 1/4"" Diameter",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+9683K11,"Wood Dowel, 1/8"" Diameter",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,15,pcs
+595648,"2.55"" Press Fit Wheel (2 pack)",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+E1073,Wired Male Tamiya Connector,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+E1074,Wired Female Tamiya Connector,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+3055,Raspberry Pi 3 - Model B - ARMv8 with 1G RAM,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+VINHP,Vinyl for Heat Press (priced per linear foot),Vinyl,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+2157327,MB1010 LV-MaxSonar-EZ1 High Performance Ultrasonic Rangefinder,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+2809,Adafruit LIS3DH Triple-Axis Accelerometer (+-2g/4g/8g/16g),Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+1032,L3GD20H Triple-Axis Gyro Breakout Board,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BOB-12009,SparkFun Logic Level Converter - Bi-Directional,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+1890,Mini Metal Speaker w/ Wires - 8 ohm 0.5W,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+"160, 445-2525-1-ND",Piezo Buzzer - PS1240,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+1875,TXB0104 Bi-Directional Level Shifter - TXB0104,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+2746,Adafruit Bluefruit LE Shield - Bluetooth LE for Arduino,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+187151,"Relay, 8A contact, 5VDC coil",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+2152438,Arduino Uno Proto Shield (PCB only),Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+1609/571,Adafruit Perma-Proto Half-sized Breadboard PCB,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+2810,Mini USB WiFi Module - RTL8188eu - 802.11b/g/n,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+1782,MCP9808 High Accuracy I2C Temperature Sensor Breakout Board,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+8-4-poplar-2-thick,"8/4 Poplar (2"" thick)",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+4-4-poplar-1-thick,"4/4 Poplar (1"" thick)",Wood,wood-cnc-shop-122b,Jacobs Material Store -> Room 122B Heavy Shop Pickup,0,pcs
+CAB-11304,USB to RS232 Converter - 6ft,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+900,"USB Cable - 6"" Standard A-B",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+TL714-ND,"CABLE, HDMI TO MINI HDMI 3'",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+Q396-ND,CABLE HDMI M-M CON 3' 30AWG,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+AE10419-ND,CABLE USB-A TO MICRO USB-B 1M,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+AE1450-ND,CABLE MINI USB 5PIN 1M 2.0 VERS,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+116-30-3008-6-ND,USB EXTENSION CABLE A MALE/FEMALE 6',Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+Q398-ND,CABLE HDMI M-M A CON 6' 28 AWG,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+AE9972-ND,CABLE CAT.5E SHIELDED BLUE 2M,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+AE1462-ND,CABLE USB A-B MALE 1M 2.0 VERS,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+vinyl-24-wide-roll-priced-per-inch,"Vinyl: 24"" Wide Roll (priced per inch)",Vinyl,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+"798, 364-1264-ND",Wall Adapter Power Supply - 12V DC 1A (Barrel Jack),Power,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+safety-glasses,Safety Glasses,PPE,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+1ZBU3,"1/8"" ABS Black for Vacuforming",Vacuformer,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+1ZBU2,"1/16"" ABS Black for Vacuforming",Vacuformer,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+1-16-pet-g-for-vacuforming,".060"" PET-G for Vacuforming",Vacuformer,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+A142448,"Clear Acrylic - 1/4"" x 24"" x 48""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,0,pcs
+A1162448,"Clear Acrylic - 1/16"" x 24"" x 48""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+A182448,"Clear Acrylic - 1/8"" x 24"" x 48""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+A141832,"Clear Acrylic - 1/4"" x 16"" x 32""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+A181632,"Clear Acrylic - 1/8"" x 16"" x 32""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+A1161632,"Clear Acrylic - 1/16"" x 16"" x 32""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+142448,"Plywood - 1/4"" x 24"" x 48""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+182448,"Plywood - 1/8"" x 24"" x 48""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+141830,"Plywood - 1/4"" x 18"" x 30""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+181830,"Plywood - 1/8"" x 18"" x 30""",Laser cutter materials,makerspace-110,Jacobs Material Store -> Room 110 Pickup Counter,15,pcs
+PRT-12043,Breadboard - Mini Modular (White),Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+PRT-12002,Breadboard - Self-Adhesive (White),Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+PRT-12615,Breadboard - Full-Size (Bare),Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+SEN-11028,SparkFun Triple Axis Accelerometer and Gyro Breakout - MPU-6050,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+copy-of-raspberry-pi-camera-module,Raspberry Pi Camera Module V2,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DEV-11868,Raspberry Pi Camera Module,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+SEN-13285,PIR Motion Sensor (JST),Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+KIT-13198,SparkFun RFID Starter Kit,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+SEN-12862,SparkFun Essential Sensor Kit,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+PRT-09518,9V to Barrel Jack Adapter,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+TOL-12890,Wall Adapter Power Supply - 5V DC 2A (USB Micro-B),Power,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+TOL-12889,Wall Adapter Power Supply - 5V DC 2A (Barrel Jack),Power,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+TOL-00298,Wall Adapter Power Supply - 9VDC 650mA,Power,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+PRT-11417,Arduino Stackable Header Kit - R3,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+WRL-13678,WiFi Module - ESP8266,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+WRL-13231,SparkFun ESP8266 Thing,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+WRL-12576,SparkFun Bluetooth Mate Silver,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+WRL-09434,Bluetooth USB Module Mini,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+WRL-11215,XBee 1mW Trace Antenna - Series 1 (802.15.4),Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+WRL-11697,SparkFun XBee Explorer Dongle,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+WRL-11373,SparkFun XBee Explorer Regulated,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+DEV-09873,SparkFun FTDI Basic Breakout - 3.3V,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DEV-09716,SparkFun FTDI Basic Breakout - 5V,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DEV-11114,Arduino Pro Mini 328 - 3.3V/8MHz,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DEV-11113,Arduino Pro Mini 328 - 5V/16MHz,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DEV-11021,Arduino Uno - R3,Microcontroller,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+SC508,"Connector set, Hitec servo",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+SY2412S,"Cable, servo Y-harness, 12""",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+SE2412S,"Cable, servo extension, 12""",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+SE2436S,"Cable, servo extension, 36""",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+32645S,"Servo, Hitec HS-645MG Ultra Torque",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+31075S,"Servo, Hitec HS-75BB Retract",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+31055S,"Servo, Hitec HS-55 Sub-Micro",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+31081S,"Servo, Hitec HS-81 Micro",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+31422S00,"Servo, Hitec HS-422 Standard",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+1182,A4988 Stepper Motor Driver Carrier,Interface,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+pcb-blanks-for-othermill-double-sided,"PCB Blanks for Othermill, Double-sided",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+pcb-blanks-for-othermill-single-sided,"PCB Blanks for Othermill, Single-sided",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+589-8200-4565,"Breadboard .1"" Holes 2 Planes 4.5""X6.5""; FR4",Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DURPC1604BKD,"Battery, 9V",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DURPC2400BKD,"Battery, AAA",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+DURPC1500BKD,"Battery, AA",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+36-84-6-ND,"BATTERY STRAP 9V SHIELDED 6"" LD",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BC2AAAW-ND,BATT HOLDER 2-AAA CELLS WIRE LDS,Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BC2AAW-ND,BATT HOLDER 2-AA CELLS WIRE LDS,Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BC3AAAW-ND,"BATT HOLDER 3AAA WIRE LEAD 6""",Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BC3AAW-ND,BATT HOLDER 3-AA CELLS WIRE LDS,Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BC4AAAW-ND,BATT HOLDER 4-AAA CELLS WIRE LDS (FLAT),Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BH24AAAW-ND,BATT HOLDER 4-AAA CELLS WIRE LDS (SQUARE),Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BC4AAW-ND,BATT HOLDER 4-AA CELLS WIRE LDS (FLAT),Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+BH24AAW-ND,BATT HOLDER 4-AA CELLS WIRE LDS (SQUARE),Battery,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CTX750-ND,OSC XO 16.000MHZ HCMOS TTL PIN,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CTX743-ND,OSC XO 8.000MHZ HCMOS TTL PC PIN,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-3502-ND,CONN 3.5MM MALE STEREO PLUG,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-2501SP-ND,CONN PLUG STEREO 2.5MM W/COVER,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-6-ND,CONN 2.5MM JACK PANEL MNT,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-5-ND,CONN 2.1MM JACK W/HARD PNL MNT,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP3-1001-ND,CONN 2.5MM FEMALE PLUG 5.5MM OUT,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP3-1000-ND,CONN 2.1MM FEMALE PLUG 5.5MM OUT,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-2184-ND,CABLE ASSY STR 2.5MM 6' 24 AWG,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-2185-ND,CABLE ASSY STR 2.1MM 6' 24 AWG,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-2203-ND,CABLE ASSY STR 2.5MM STEREO 6',Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+CP-2207-ND,CABLE ASSY STR 3.5MM STEREO 6',Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+V2009-ND,PC BOARD 2-SIDE PPH 4.0X6.0,Electrical,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+RP-104306,Continuous Rotation Servo - SPRINGRC SM-S4306R,Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs
+154,Continuous Rotation Servo - FeeTech FS5103R,Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+324,"Stepper motor - NEMA-17 size - 200 steps/rev, 12V 350mA",Actuator,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,15,pcs
+512,Analog 2-axis Thumb Joystick with Select Button + Breakout Board,Sensor,electronics-lab-220,Jacobs Material Store -> Room 220 Electronics Lab,0,pcs

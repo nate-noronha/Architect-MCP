@@ -1,0 +1,38 @@
+university_slug: ucb-jacobs-hall
+university_name: University of California, Berkeley
+makerspace_name: Jacobs Institute for Design Innovation (Jacobs Hall)
+location: 2530 Ridge Rd, Berkeley, CA 94720
+website: https://jacobsinstitute.berkeley.edu
+contact_email: jacobsinstitute@berkeley.edu
+default_token_budget: 4000
+areas:
+  - slug: makerspace-110
+    name: All-Purpose Makerspace (Room 110 & 120)
+    facility_code: MAKERSPACE
+    description: Laser cutters, desktop FDM 3D printers, vinyl cutters, sewing machines, and assembly tables.
+    required_base_cert: jacobs-maker-pass
+    policy_links:
+      labs: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+      maker_pass: https://jacobsinstitute.berkeley.edu/making-at-jacobs/get-maker-pass/
+  - slug: wood-cnc-shop-122b
+    name: Basement Wood & Heavy CNC Fabrication Shop (Room 122B)
+    facility_code: MACHINE_SHOP
+    description: SawStop table saws, ShopBot CNC router, OMAX 2626 waterjet, and FabLight FL3000 metal fiber laser.
+    required_base_cert: jacobs-woodshop-cert
+    policy_links:
+      labs: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
+  - slug: electronics-lab-220
+    name: Electronics & Prototyping Lab (Room 220)
+    facility_code: EE_STOCKROOM
+    description: Soldering stations, oscilloscopes, DC power supplies, logic analyzers, and Jacobs Material Store pickup.
+    required_base_cert: jacobs-maker-pass
+    policy_links:
+      store: https://store.jacobshall.org/
+  - slug: advanced-lab-110a
+    name: Advanced Prototyping & Resin Lab (Room 110A)
+    facility_code: MAKERSPACE
+    description: Formlabs Form 4 SLA resin printers, Stratasys Fortus/J55, and Markforged composite printers.
+    required_base_cert: jacobs-maker-pass
+emergency_contacts:
+  ucpd_emergency: "(510) 642-3333"
+  jacobs_front_desk: "(510) 664-7567"

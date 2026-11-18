@@ -1,0 +1,51 @@
+certifications:
+  - id: jacobs-maker-pass
+    name: Jacobs Hall Maker Pass & General Safety Orientation
+    level: 1
+    description: Semesterly Maker Pass + bCourses safety quiz granting drop-in access to Jacobs Hall rooms, FDM 3D printers, electronics lab, and textiles.
+    granting_area: makerspace-110
+    prerequisites: []
+    unlocks_machines:
+      - ultimaker-prusa-fdm
+      - juki-ddl8700-sewing
+    requires_in_person_checkoff: false
+    training_url: https://jacobsinstitute.berkeley.edu/making-at-jacobs/get-maker-pass/
+
+  - id: jacobs-laser-cutter-cert
+    name: Universal Laser Systems Safety & Operations Checkoff
+    level: 2
+    description: Virtual module and hands-on checkoff for Universal Laser Systems ILS12.75 cutters and material safety verification.
+    granting_area: makerspace-110
+    prerequisites:
+      - jacobs-maker-pass
+    unlocks_machines:
+      - uls-ils1275-laser
+    requires_in_person_checkoff: true
+    training_url: https://jacobsinstitute.berkeley.edu/making-at-jacobs/
+
+  - id: jacobs-woodshop-cert
+    name: Basement Woodshop & SawStop Hands-On Training
+    level: 2
+    description: Supervised in-person woodshop orientation covering SawStop 10" table saw, band saws, dust collection, and dress code.
+    granting_area: wood-cnc-shop-122b
+    prerequisites:
+      - jacobs-maker-pass
+    unlocks_machines:
+      - sawstop-table-saw
+    requires_in_person_checkoff: true
+    training_url: https://jacobsinstitute.berkeley.edu/making-at-jacobs/
+
+  - id: jacobs-cnc-waterjet-cert
+    name: Advanced CNC, OMAX Waterjet & FabLight Metal Laser Certification
+    level: 3
+    description: Design Specialist-led CAM, fixturing, and operation training for ShopBot PRSalpha, OMAX 2626 waterjet, FabLight FL3000, and Advanced Lab SLA printers.
+    granting_area: wood-cnc-shop-122b
+    prerequisites:
+      - jacobs-woodshop-cert
+    unlocks_machines:
+      - shopbot-prsalpha-cnc
+      - omax-2626-waterjet
+      - fablight-fl3000-laser
+      - formlabs-form4-sla
+    requires_in_person_checkoff: true
+    training_url: https://jacobsinstitute.berkeley.edu/our-spaces-at-a-glance/labs-and-equipment/
