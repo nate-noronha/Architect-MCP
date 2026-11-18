@@ -112,3 +112,31 @@ Add to your `claude_desktop_config.json`:
 - `/architect-build-plan` (`project_idea`, `student_email`): Decomposes hardware builds into safe, inventory-backed steps.
 - `/shop-safety-precheck` (`machine_name`, `material`): Pre-flight audit for machine/material hazards and certs.
 - `/bom-stockroom-audit` (`bom_list`): Categorizes BOM into free campus stock vs. external orders.
+
+---
+
+## Admin & Compliance CLI (`architect-admin` / `architect-mcp`)
+
+Makerspace directors can validate drop-in university tenant packs, test stockroom CSV exports, and inspect context harness token packing directly from the terminal:
+
+```bash
+# List all discovered university tenant packs
+architect-mcp list-tenants
+
+# Validate cross-bucket integrity (safety, certs, machines, inventory) across all packs
+architect-mcp validate-pack --all
+
+# Validate and optionally install a new inventory CSV into a tenant pack
+architect-mcp ingest-csv ./stockroom_export.csv --tenant hmc-makerspace --apply
+
+# Simulate Context Harness routing & token budgeting for a build prompt
+architect-mcp inspect-harness "Turn 6061 shaft on engine lathe with 60V battery" --tenant hmc-makerspace
+```
+
+```bash
+# Scaffold a brand-new university tenant pack from the starter template
+architect-mcp init-pack stanford-prl --university "Stanford University" --makerspace "Product Realization Lab"
+
+# Print ready-to-paste client JSON config for Claude Desktop, Cursor, or Antigravity
+architect-mcp print-config --client antigravity --tenant hmc-makerspace
+```

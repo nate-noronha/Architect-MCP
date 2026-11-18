@@ -85,3 +85,65 @@ This document tracks architectural decisions, vertical slice milestones, and aut
 - **Verification**:
   - Added `tests/test_persistent_workflows.py` (`3 passed`: server-restart persistence, companion web app DB bridge sync, and missing-schema no-op safety).
   - Full test suite across Slices 1–4: `30 passed` in `0.88s`.
+
+---
+
+## 2026-11-14: Slice 5 — Admin & Compliance CLI (`architect-admin`) & Full Compliance Suite
+
+- **Branch**: `feat/slice-5-admin-cli` (stacked on `feat/slice-4-persistent-workflows`)
+- **Deliverables Implemented**:
+  - `architect_mcp/cli.py`:
+    - `list-tenants`: Lists discovered university tenant packs and bucket counts.
+    - `validate-pack`: Cross-bucket integrity validator (`--all`, `--json`) checking certs, machines, inventory, and pinned safety protocols.
+    - `ingest-csv`: Parses and validates makerspace inventory CSVs (`--apply` installs into target tenant `inventory/` and re-validates).
+    - `inspect-harness`: Runs `ContextRouter.assemble` on any build prompt and reports token budget usage, hazard warnings, and steward gate triggers.
+  - `architect_mcp/server.py` & `pyproject.toml`: Registered `architect-admin` console script and dispatched admin subcommands cleanly through `architect-mcp <subcommand>` while preserving default MCP server mode.
+  - `README.md`: Documented Admin & Compliance CLI commands.
+- **Verification**:
+  - Added `tests/test_admin_cli.py` (`6 passed`).
+  - Full test suite across all 5 slices: `36 passed` in `0.82s`.
+
+---
+
+## 2026-11-14: Slice 6 — University Starter Pack, Onboarding CLI & Live MCP `stdio` E2E Verification
+
+- **Branch**: `feat/slice-6-onboarding-and-e2e` (stacked on `feat/slice-5-admin-cli`)
+- **Deliverables Implemented**:
+  - `tenant_packs/university-template/`: Drop-in starter pack (`campus.yaml`, `safety/01_general_safety.md`, `certifications/certs.yaml`, `machines/machines.yaml`, `inventory/sample_inventory.csv`) for instant zero-code university onboarding.
+  - `architect_mcp/cli.py`:
+    - `init-pack`: Scaffolds a new university tenant pack from `university-template`, customizes `campus.yaml`, and validates cross-bucket integrity.
+    - `print-config`: Generates ready-to-paste MCP client JSON configs (`claude-desktop`, `cursor`, `antigravity`) with the resolved Python executable and tenant environment variables.
+- **Verification**:
+  - Added `tests/test_stdio_protocol_e2e.py` (`4 passed`), including a live subprocess `stdio` JSON-RPC round-trip (`ClientSession` + `stdio_client`) verifying `initialize`, `list_tools`, `list_resources`, `list_prompts`, `assemble_context_harness`, `save_hardware_build_plan`, and `complete_build_step` safety gate blocking over real OS pipes.
+  - Full test suite across Slices 1–6: `40 passed` in `1.45s`.
+
+---
+
+## 2026-11-14: Slice 7 — Remote HTTP/SSE Deployment Readiness, `/health` Endpoint & Docker/Railway Config
+
+- **Branch**: `feat/slice-7-http-and-deploy` (stacked on `feat/slice-6-onboarding-and-e2e`)
+- **Deliverables Implemented**:
+  - `architect_mcp/server.py`:
+    - Added `/health` GET custom route returning service status, active university slug, makerspace name, and bucket counts across both `streamable-http` and `sse` ASGI apps.
+    - Added `$PORT` environment variable fallback for cloud deployment port binding.
+  - `Dockerfile`, `.dockerignore`, `docker-compose.yml`, `railway.toml`: Containerized remote MCP server deployment with persistent SQLite volume (`/data/architect_mcp.db`) and `/health` check.
+- **Verification**:
+  - Added `tests/test_http_transport.py` (`3 passed`: `/health` on Streamable HTTP, `/health` on SSE, and `/mcp` JSON-RPC `initialize` handshake).
+  - Full test suite across Slices 1–7: `43 passed` in `1.56s`.
+
+---
+
+## 2026-11-14: Slice 8 — Safety Audit Telemetry (`architect_audit_logs`) & GitHub Actions CI
+
+- **Branch**: `feat/slice-8-audit-and-ci` (stacked on `feat/slice-7-http-and-deploy`)
+- **Deliverables Implemented**:
+  - `architect_mcp/db.py`:
+    - Added `AuditLogRow` (`architect_audit_logs`) table + `record_audit_event()` and `list_audit_events()` on `WorkflowRepository`.
+    - Automatically logs `PLAN_SAVED`, `SIGNOFF_REQUESTED`, `SIGNOFF_APPROVED`, `SAFETY_GATE_BLOCKED`, and `STEP_COMPLETED` compliance events.
+  - `architect_mcp/server.py`:
+    - Emits `HARNESS_ASSEMBLED` telemetry on `assemble_context_harness` calls.
+    - Added `architect://audit/recent` MCP resource exposing the latest 25 safety & tool audit events.
+  - `.github/workflows/ci.yml`: Automated CI pipeline running `architect-mcp validate-pack --all` and `pytest -v` on every push and PR.
+- **Verification**:
+  - Added `tests/test_audit_telemetry.py` (`1 passed` end-to-end across all 6 audit event types).
+  - Full test suite across Slices 1–8: `44 passed` in `1.86s`.

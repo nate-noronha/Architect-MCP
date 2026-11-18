@@ -1,0 +1,20 @@
+services:
+  architect-mcp:
+    build: .
+    ports:
+      - "8765:8765"
+    environment:
+      ARCHITECT_TENANT: ${ARCHITECT_TENANT:-hmc-makerspace}
+      ARCHITECT_TOKEN_BUDGET: ${ARCHITECT_TOKEN_BUDGET:-4000}
+      DATABASE_URL: sqlite:////data/architect_mcp.db
+      ARCHITECT_WEBAPP_DATABASE_URL: ${ARCHITECT_WEBAPP_DATABASE_URL:-}
+    volumes:
+      - architect_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  architect_data:

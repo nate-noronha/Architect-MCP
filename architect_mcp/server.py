@@ -107,6 +107,17 @@ def create_mcp_server(
             token_budget=budget,
         )
 
+        workflow_repo.record_audit_event(
+            university_slug=payload.university_slug,
+            event_type="HARNESS_ASSEMBLED",
+            actor_id=student_id,
+            steward_gate_triggered=payload.steward_signoff_likely_required,
+            summary=(
+                f"Context harness packed {payload.total_tokens_used}/{payload.token_budget} tokens "
+                f"(subsystems={[s.value for s in payload.inferred_subsystems]})"
+            ),
+        )
+
         return {
             "university_slug": payload.university_slug,
             "university_name": payload.university_name,
@@ -527,6 +538,15 @@ def create_mcp_server(
         )
         return json.dumps(pending, indent=2)
 
+    @app.resource("architect://audit/recent")
+    def get_recent_audit_log() -> str:
+        """Recent safety gate & MCP tool telemetry events for compliance auditing."""
+        events = workflow_repo.list_audit_events(
+            university_slug=app.manager.university_slug,  # type: ignore[attr-defined]
+            limit=25,
+        )
+        return json.dumps(events, indent=2)
+
     # =========================================================================
     # MCP PROMPTS
     # =========================================================================
@@ -583,6 +603,23 @@ def create_mcp_server(
             "   - 'Must Procure Externally' (suggest standard commercial suppliers like McMaster-Carr or DigiKey)."
         )
 
+    @app.custom_route("/health", methods=["GET"])
+    async def health_check(request: Any) -> Any:
+        """Healthcheck endpoint for Docker, Railway, and remote MCP monitoring."""
+        from starlette.responses import JSONResponse
+
+        active_mgr = app.manager  # type: ignore[attr-defined]
+        return JSONResponse(
+            {
+                "status": "ok",
+                "service": "architect-mcp",
+                "version": "0.1.0",
+                "university_slug": active_mgr.university_slug,
+                "makerspace_name": active_mgr.pack.campus.makerspace_name,
+                "buckets": active_mgr.bucket_summary(),
+            }
+        )
+
     return app
 
 
@@ -591,7 +628,14 @@ server = create_mcp_server()
 
 
 def main() -> None:
-    """CLI entrypoint for running the Architect-MCP server."""
+    """CLI entrypoint for running the Architect-MCP server or admin subcommands."""
+    from architect_mcp.cli import ADMIN_SUBCOMMANDS, main as admin_main
+
+    if any(arg in ADMIN_SUBCOMMANDS for arg in sys.argv[1:]):
+        sys.exit(admin_main(sys.argv[1:]))
+
+    default_port = int(os.getenv("PORT", "8765"))
+
     parser = argparse.ArgumentParser(
         description="Architect-MCP: Portable Makerspace Context Harness & MCP Server"
     )
@@ -609,8 +653,8 @@ def main() -> None:
     parser.add_argument(
         "--port",
         type=int,
-        default=8765,
-        help="Port for HTTP/SSE transport (default: 8765)",
+        default=default_port,
+        help="Port for HTTP/SSE transport (default: $PORT or 8765)",
     )
     parser.add_argument(
         "--tenant",
